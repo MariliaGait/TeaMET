@@ -6,7 +6,7 @@ Scanner scannner = new Scanner(System.in);
 
 System.out.println("Καλώς ήρθατε στον εΘΕΛΩντισμό!");
 System.out.println("Είστε έτοιμοι για ένα νέο εθελοντικό ταξίδι;");
-System.out.println("Είστε εγγεργαμμένος\-η;");
+System.out.println("Είστε εγγεγραμμένος\-η;");
 System.out.println("1.Ναι       2.Όχι ")
 Int account = scanner.nextInt();
 
