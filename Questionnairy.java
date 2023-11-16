@@ -22,9 +22,9 @@ public class Questionnairy {
                 if (programming2 == 1) {
                     System.out.println("Προτιμάς την ανάπτυξη εφαρμογών(Web Developer)και το Data Analysis ή την ενασχόληση με Marketing,Social media και Video Editing")
                     System.out.println("1.Web-Software-Data    2.Marketing-Media-Video-Youtube");
-                    int prog-or-media = scanner.nextnt();
+                    int prog_or_media = scanner.nextnt(); 
 
-                    if ( prog-or-media == 1) {
+                    if ( prog_or_media == 1) {
                         System.err.println("Τέλεια, υπάρχουν πολλές υπηρεσίες που αποζητούν βοήθεια σε θέματα πληροφορικής");
                         //Σύνδεση με chat με keyword=programming2 όπου το νουμερο 2 αναφέρεται στον διαδικτυακό εθελοντισμό
                         //Συνδέουμε δράσεις για πληροφορικούς Web Developpers,Software Developers, Data Analyst και αλλα τετοια (Let’s Do it Greece,KINOTRO)
