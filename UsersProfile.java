@@ -38,7 +38,7 @@ public class UsersProfile {
     }
 
     // Method to collect user information
-    public static collectUserInformation() {
+    public static UsersProfile collectUserInformation() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ονοματεπώνυμο: ");
