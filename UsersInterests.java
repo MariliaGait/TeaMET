@@ -11,6 +11,8 @@ public class UsersInterests {
     String location = scanner.next();
     System.out.print("Ποια κατηγορία προτιμάτε: 1.δράσεις δια ζώσης   2.διαδικτυακό εθελοντισμό ");
     int category = scanner.nextInt();
+    If (category = 2 ){
+      System.out.print(
     
     
 
