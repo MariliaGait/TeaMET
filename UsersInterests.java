@@ -60,7 +60,7 @@ public class UsersInterests {
                 human = 0;
                 }
             }
-            String result1 = collectUserInterest(location, medical, environment, animal, human);
+            String result1 = collectUserInterest1(location, medical, environment, animal, human);
             System.out.print(result1);
             scanner.close();
         } else {
