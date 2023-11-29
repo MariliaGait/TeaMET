@@ -46,7 +46,10 @@ public class UsersProfile {
         System.out.print("Ηλικία: ");
         int age = scanner.nextInt();
         System.out.println("Φύλο: 1.Γυναίκα     2.Άνδρας     3.Άλλο ");
-        int sex = scanner.nextInt();
+        int sex;
+        do {
+            sex = scanner.nextInt();
+        }while(sex != 1 && sex != 2 && sex !=3);
         System.out.println("Στοιχεία επικοινωνίας: ");
         System.out.print("E-mail: ");
         String email = scanner.next();
