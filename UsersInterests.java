@@ -94,33 +94,33 @@ public class UsersInterests {
     public static String collectUserInterest1(String l, int m, int e, int a, int h, int s){
             String ca = "Δράσεις δια ζώσης";
             if (e == 0){
-                String t = "οχι περιβαλλον";
+                String fenvironment = "οχι περιβαλλον";
             } else {
                 if (e == 1){
-                    String t = "Καμπάνιες ευαισθητοποίησης";
+                    String fenvironment = "Καμπάνιες ευαισθητοποίησης";
                 } else if (e == 2){
-                    String t = "Καθαρισμός δημόσιων χώρων";
+                    String fenvironment = "Καθαρισμός δημόσιων χώρων";
                 } else if (e == 3) {
-                    String t = "Δενδροφύτευση/Δασοφύτευση";
+                    String fenvironment = "Δενδροφύτευση/Δασοφύτευση";
                 } else {
-                    String t = "Ανακύκλωση"; 
+                    String fenvironment = "Ανακύκλωση"; 
                 }
             }
             if (m == 1){  // ΕΧΕΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
                 String me = "Έχω ιατρικές γνώσεις";
                 if (a == 0){
-                    String n = "Όχι ζώα";
+                    String fanimal = "Όχι ζώα";
                 } else {
                     if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
-                        String n = "Καμπάνιες ευαισθητοποίησης"; 
+                        String fanimal = "Καμπάνιες ευαισθητοποίησης"; 
                     } else if (a == 2){
-                        String n = "Κτηνιατριακή περίθαλψη";
+                        String fanimal = "Κτηνιατριακή περίθαλψη";
                     } else if (a == 3){
-                        String n = "Φροντίδα/Παρέα σε άπορα ζώα σε καταφύγια";
+                        String fanimal = "Φροντίδα/Παρέα σε άπορα ζώα σε καταφύγια";
                     } else if (a == 4){
-                        String n = "Μεταφορά ζώων που είναι σε κρίσιμη ανάγκη";
+                        String fanimal = "Μεταφορά ζώων που είναι σε κρίσιμη ανάγκη";
                     } else {
-                        String n = "Προστασία άγριας ζωής";
+                        String fanimal = "Προστασία άγριας ζωής";
                     }
                 }
                 if (h == 0){
