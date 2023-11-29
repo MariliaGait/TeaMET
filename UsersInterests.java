@@ -198,7 +198,7 @@ public class UsersInterests {
         } else {
             fhelp = ("Διαδικτυακή υποστήριξη και βοήθεια με την παροχή συμβουλών");
         }
-        String result2 = l + ca + m + mm + t + p + c ;
+        String result2 = l + ca + fmoney + fcampaign + ftranslate + fhttp + fhelp ;
         return result2; 
     }
 }
