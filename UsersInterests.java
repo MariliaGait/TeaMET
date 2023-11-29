@@ -59,10 +59,11 @@ public class UsersInterests {
                 } else {
                 human = 0;
                 }
-            }
+            
             String result1 = collectUserInterest1(location, medical, environment, animal, human);
             System.out.print(result1);
             scanner.close();
+            }
         } else {
             int marketing, translate, programm;
             System.out.println("Θα σας ενδιέφερε να κάνετε χρηματική δωρεά σε κάποια ΜΚΟ; 1.Ναι 2. Όχι");
