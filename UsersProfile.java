@@ -44,7 +44,10 @@ public class UsersProfile {
         System.out.print("Ονοματεπώνυμο: ");
         String username = scanner.next();
         System.out.print("Ηλικία: ");
-        int age = scanner.nextInt();
+        int age;
+        do {
+            age = scanner.nextInt();
+        } while (age > 0) //εμμέλεια//
         System.out.println("Φύλο: 1.Γυναίκα     2.Άνδρας     3.Άλλο ");
         int sex;
         do {
