@@ -4,10 +4,28 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import java.io.IOException;
+import java.nio.file.attribute.UserPrincipalLookupService;
+import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.net.URL;
+import java.io.OutputStreamWriter;
+import java.io.InputStreamReader;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.MalformedURLException;
 
 import java.nio.file.attribute.UserPrincipalLookupService;
 import java.util.Scanner;
-
+//έβαλα και άλλα import και τα λάθη μειώθηκαν σε 11 απο 16(εμμέλεια)//
 public class eTHELOntismos {
 
     public static String chatGPT(String prompt) {
