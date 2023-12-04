@@ -50,11 +50,16 @@ public class UserProfileManager {
         }
     }
 
-    public static void main(String[] args) {
-        // Δημιουργία πίνακα αν δεν υπάρχει
-        createTable();
 
-        // Προσθήκη προφίλ χρήστη
-        insertUserProfile("john_doe", "john.doe@example.com", "password123");
+}
+
+
+public class MainClass {
+
+    public static void main(String[] args) {
+      
+        UserProfileManager userProfileManager = new UserProfileManager();
+        
+        userProfileManager.insertUserProfile("john_doe", 25, "Male", "john.doe@example.com", 1234567890);
     }
 }
