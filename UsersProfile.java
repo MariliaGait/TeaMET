@@ -62,3 +62,17 @@ public class UsersProfile {
         return new UsersProfile(username, age, sex, email, phonenumber);
     }
 }
+
+
+int s;
+    do {
+        s = scanner.nextInt();
+    }while(sex != 1 && sex != 2 && sex !=3);
+String sex;
+if (s == 1) {
+    sex = 'Γυναίκα';
+} else if (s == 2) {
+    sex = 'Άνδρας';
+} else {
+    sex = 'Άλλο';
+}
