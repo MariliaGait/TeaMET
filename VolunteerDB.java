@@ -6,29 +6,61 @@ public class VolunteerDB {
 
     private static final String DB_URL = "jdbc:sqlite:volunteer_actions.db";
 
+    public static void createDatabase() {
+
+        try(Connection connection = DriverManager.getConnection(DB_URL)) {
+
+            System.out.println("Connected to the database.");
+
+        } catch (SQLException e) {
+            System.err.println("Error creating the database: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+    }
+    
     public static void createTable() {
+
+        String createTableQuery = "CREATE TABLE IF NOT EXISTS " +
+                                        "volunteer_actions (" +
+                                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                        "name TEXT," +
+                                        "location TEXT," +
+                                        "description TEXT," +
+                                        "date TEXT)";
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
-
-            String createTableQuery = "CREATE TABLE IF NOT EXISTS " +
-                                     "volunteer_actions (" +
-                                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                     "name TEXT," +
-                                     "location TEXT," +
-                                     "description TEXT," +
-                                     "date TEXT)";
-
+            
             statement.executeUpdate(createTableQuery);
 
             System.out.println("Table created successfully.");
 
         } catch (SQLException e) {
 
+            System.err.println("Error creating the table: " + e.getMessage());
             e.printStackTrace();
 
         }
 
+    }
+
+    private static void dropTable() {
+
+        String dropTableQuery = "DROP TABLE IF EXISTS volunteer_actions";
+
+        try (Connection connection = DriverManager.getConnection(DB_URL);
+             Statement statement = connection.createStatement()) {
+
+            statement.executeUpdate(dropTableQuery);
+            System.out.println("Table dropped successfully.");
+
+        } catch (SQLException e) {
+
+            System.err.println("Error dropping the table: " + e.getMessage());
+            e.printStackTrace();
+
+        }
     }
 
     public static void insertVolunteerAction(String name, String location,
@@ -92,9 +124,11 @@ public class VolunteerDB {
     
     public static void main(String[] args) {
 
+        createDatabase();
+        dropTable();
         createTable();
-        insertVolunteerAction("Tree Planting Event", "Marathon, Attica", "Marathon, Attica", "2023-12-16");
-        getAllVolunteerActions();
+        insertVolunteerAction("Tree Planting Event", "Marathon, Attica", "tree planting, nature, team", "2023-12-16");
+        System.out.println(getAllVolunteerActions());
 
     }
 
