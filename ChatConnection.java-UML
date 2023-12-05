@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 
 
-public class eTHELOntismos {
+public class ChatConnection {
 
     public static String chatGPT(String prompt) {
         String url = "https://chat.openai.com/";
@@ -68,3 +68,4 @@ public class eTHELOntismos {
         return response.substring(start, end);
 
     }
+}
