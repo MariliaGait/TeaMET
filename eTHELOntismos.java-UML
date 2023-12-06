@@ -7,7 +7,9 @@ public static void ethelontismos(String[] args) {
         String userName = userProfile.getUsername();
         //int userAge = userProfile.getAge();
         // η αποκάτω σειρά αποθηκεύει τα δεδομένα στην database καλώντας τη μέθοδο insertUserProfile της κλάσης UserProfileManager
-        insertUserProfile(username, userage
+        String email = userProfile.getEmail();
+        String password = userProfile();
+        insertUserProfile(username,email,password); 
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //kaloume thn usersinterests
         String result = UsersInterests.return_result();
