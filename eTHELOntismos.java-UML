@@ -9,5 +9,6 @@ public static void ethelontismos(String[] args) {
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //kaloume thn usersinterests
         String result = UsersInterests.return_result();
+        // η αποκάτω σειρά αλλάζει εφόσον χρησιμοποιούμε database
         System.out.println(chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
     }
