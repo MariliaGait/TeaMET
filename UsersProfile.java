@@ -2,16 +2,18 @@ import java.util.Scanner;
 
 public class UsersProfile {
     private String username;
+    private String password;
     private int age;
     private int sex;
     private String email;
     private int phonenumber;
 
     // Constructor
-    public UsersProfile(String username, int age, int sex, String email, int phonenumber) {
+    public UsersProfile(String username, int age, int sex, String password, String email, int phonenumber) {
         this.username = username;
         this.age = age;
         this.sex = sex;
+        this.password = password;
         this.email = email;
         this.phonenumber = phonenumber;
     }
@@ -28,6 +30,8 @@ public class UsersProfile {
     public int getSex() {
         return sex;
     }
+    public String getPas() {
+        return password;
 
     public String getEmail() {
         return email;
@@ -41,9 +45,24 @@ public class UsersProfile {
     public static UsersProfile collectUserInformation() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Ονοματεπώνυμο: ");
+        System.out.println("Ονοματεπώνυμο: ");
         String username = scanner.next();
-        System.out.print("Ηλικία: ");
+        int flag;
+        boolean done = false;
+        do {
+        System.out.println("Κωδικός πρόσβασης: ")
+        String password = scanner.next();
+        do {
+        System.out.println("Εισάγετε για επιβεβαίωση τον κωδικό που μόλις ορίσατε")
+        String pw2 = scanner.next();
+        if (pw compareTo(password) 
+        flag++;
+        while (flag < 4)
+        if (flag >= 4) {
+            done = true;
+        }
+        } while (done)
+        System.out.println("Ηλικία: ");
         int age;
         do {
             age = scanner.nextInt();
@@ -54,9 +73,9 @@ public class UsersProfile {
             sex = scanner.nextInt();
         }while(sex != 1 && sex != 2 && sex !=3);
         System.out.println("Στοιχεία επικοινωνίας: ");
-        System.out.print("E-mail: ");
+        System.out.println("E-mail: ");
         String email = scanner.next();
-        System.out.print("Τηλέφωνο: ");
+        System.out.println("Τηλέφωνο: ");
         int phonenumber = scanner.nextInt();
 
         return new UsersProfile(username, age, sex, email, phonenumber);
