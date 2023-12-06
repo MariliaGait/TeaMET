@@ -6,6 +6,8 @@ public static void ethelontismos(String[] args) {
         // καλω την κλαση που περιλαμβανει το προφιλ του χρηστη και απο αυτη χρειαζομαι μονο ονομα και ;ηλικια;
         String userName = userProfile.getUsername();
         //int userAge = userProfile.getAge();
+        // η αποκάτω σειρά αποθηκεύει τα δεδομένα στην database καλώντας τη μέθοδο insertUserProfile της κλάσης UserProfileManager
+        insertUserProfile(username, userage
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //kaloume thn usersinterests
         String result = UsersInterests.return_result();
