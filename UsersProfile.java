@@ -50,18 +50,18 @@ public class UsersProfile {
         int flag;
         boolean done = false;
         do {
-        System.out.println("Κωδικός πρόσβασης: ")
-        String password = scanner.next();
-        do {
-        System.out.println("Εισάγετε για επιβεβαίωση τον κωδικό που μόλις ορίσατε")
-        String pw2 = scanner.next();
-        if (pw compareTo(password) 
-        flag++;
-        while (flag < 4)
-        if (flag >= 4) {
-            done = true;
-        }
-        } while (done)
+            System.out.println("Κωδικός πρόσβασης: ")
+            String password = scanner.next();
+            do {
+            System.out.println("Εισάγετε για επιβεβαίωση τον κωδικό που μόλις ορίσατε")
+            String pw2 = scanner.next();
+            if (pw2 compareTo(password) != 0) {
+               flag++;
+            }while (flag < 4 || done)
+            if (flag >= 4) {
+                done = true;
+            }
+        }while (done)
         System.out.println("Ηλικία: ");
         int age;
         do {
