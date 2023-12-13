@@ -11,7 +11,8 @@ public static void ethelontismos(String[] args) {
         // η αποκάτω σειρά αποθηκεύει τα δεδομένα στην database καλώντας τη μέθοδο insertUserProfile της κλάσης UserProfileManager
         String email = userProfile.getEmail();
         String password = userProfile.getPas();
-        insertUserProfile(username,email,password); 
+        insertUserProfile(username,email,password);
+        /* για μένα(εμμελεια) η ακριβώσ πάνω μέθοδος πρέπει να καλεστεί έτσι:
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //kaloume thn usersinterests
         String result = UsersInterests.return_result();
