@@ -24,7 +24,7 @@ public class VolunteerDB {
         String createTableQuery = "CREATE TABLE IF NOT EXISTS " +
                                         "volunteer_actions (" +
                                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                        "name TEXT," +
+                                        "name TEXT" +
                                         "location TEXT," +
                                         "description TEXT," +
                                         "date TEXT)";
@@ -45,7 +45,7 @@ public class VolunteerDB {
 
     }
 
-    private static void dropTable() {
+    public static void dropTable() {
 
         String dropTableQuery = "DROP TABLE IF EXISTS volunteer_actions";
 
@@ -122,14 +122,4 @@ public class VolunteerDB {
         
     }
     
-    public static void main(String[] args) {
-
-        createDatabase();
-        dropTable();
-        createTable();
-        insertVolunteerAction("Tree Planting Event", "Marathon, Attica", "tree planting, nature, team", "2023-12-16");
-        System.out.println(getAllVolunteerActions());
-
-    }
-
 }
