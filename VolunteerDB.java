@@ -24,7 +24,7 @@ public class VolunteerDB {
         String createTableQuery = "CREATE TABLE IF NOT EXISTS " +
                                         "volunteer_actions (" +
                                         "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                        "name TEXT" +
+                                        "name TEXT," +
                                         "location TEXT," +
                                         "description TEXT," +
                                         "date TEXT)";
