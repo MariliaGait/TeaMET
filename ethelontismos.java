@@ -29,8 +29,8 @@ import java.util.Scanner;
 public class eTHELOntismos {
 
     public static String chatGPT(String prompt) {
-        String url = "https://chat.openai.com/";
-        String apiKey = "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";
+        String url = "https://api.openai.com/v1/completions";
+        String apiKey = "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";
         String model = "gpt-3.5-turbo";
 
         try {
