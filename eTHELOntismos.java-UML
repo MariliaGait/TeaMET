@@ -12,10 +12,11 @@ public static void ethelontismos(String[] args) {
         String email = userProfile.getEmail();
         String password = userProfile.getPas();
         insertUserProfile(username,email,password);
-        /* για μένα(εμμελεια) η ακριβώσ πάνω μέθοδος πρέπει να καλεστεί έτσι:
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //kaloume thn usersinterests
         String result = UsersInterests.return_result();
+        //Η κάτω εντολή φορτώνει τα δεδομένα του πίνακα με τις δράσεις
+        VolunteerDB.fillDB();
         // η αποκάτω σειρά αλλάζει εφόσον χρησιμοποιούμε database
-        System.out.println(chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
+        //System.out.println(chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
     }
