@@ -27,7 +27,8 @@ public class VolunteerDB {
                                         "name TEXT," +
                                         "location TEXT," +
                                         "description TEXT," +
-                                        "date TEXT)";
+                                        "date TEXT," +
+                                        "keywords TEXT)";
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
@@ -64,17 +65,18 @@ public class VolunteerDB {
     }
 
     public static void insertVolunteerAction(String name, String location,
-        String description, String date) {
+        String description, String date, String keywords) {
 
         try (Connection connection = DriverManager.getConnection(DB_URL);
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "INSERT INTO volunteer_actions (name, location, " +
-                     "description, date) VALUES (?, ?, ?, ?)")) {
+                     "description, date, keywords) VALUES (?, ?, ?, ?, ?)")) {
 
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, location);
             preparedStatement.setString(3, description);
             preparedStatement.setString(4, date);
+            preparedStatement.setString(5, keywords);
 
             preparedStatement.executeUpdate();
 
@@ -103,8 +105,9 @@ public class VolunteerDB {
                 String location = resultSet.getString("location");
                 String description = resultSet.getString("description");
                 String date = resultSet.getString("date");
+                String keywords = resultSet.getString("keywords");
 
-                VolunteerAction activity = new VolunteerAction(id, name, location, description, date);
+                VolunteerAction activity = new VolunteerAction(id, name, location, description, date, keywords);
 
                 activities.add(activity);
 
@@ -130,11 +133,10 @@ public class VolunteerDB {
         createTable();
 
         //insert volunteer actions to table
-        insertVolunteerAction("Συγκέντρωση Χριστουγεννιάτικων Δώρων για παιδιά", "Αττική", "1 ώρα, δια ζώσης, παιδιά, ατομικό, ανθρωπιστικό", "2023-12-16 09:30 - 13:30");
-        insertVolunteerAction("Εθελοντική Αιμοδοσία Ελληνικού Ερυθρού Σταυρού", "Αγιος Στέφανος, Αττική", "1 ώρα, δια ζώσης, ατομικό, ανθρωπιστικό, αιμοδοσία", "2023-12-16 10:00 - 16:00");
-        insertVolunteerAction("Δεντροφύτευση στην Πεντέλη", "Πεντέλη, Αττική", "δια ζώσης, 3-4 ώρες, ομαδικό, περιβάλλον, χειρονακτικό", "2023-12-17 10:00");
+        insertVolunteerAction("Συγκέντρωση Χριστουγεννιάτικων Δώρων για παιδιά", "Αττική", "Το ΟΛΟΙ ΜΑΖΙ ΜΠΟΡΟΥΜΕ καλεί τους κατοίκους της Αττικής να προσφέρουν για τα παιδιά του Δήμου τους δώρα, παιχνίδια, παιδικά βιβλία και ό,τι άλλο μπορεί να ονειρευτεί κάθε παιδί!", "2023-12-16 09:30 - 13:30", "1 ώρα, δια ζώσης, παιδιά, ατομικό, ανθρωπιστικό");
+        insertVolunteerAction("Εθελοντική Αιμοδοσία Ελληνικού Ερυθρού Σταυρού", "Αγιος Στέφανος, Αττική", "Εθελοντική αιμοδοσία σε οργάνωση από τον Ελληνικό Ερυθρό Σταυρό", "2023-12-16 10:00 - 16:00", "1 ώρα, δια ζώσης, ατομικό, ανθρωπιστικό, αιμοδοσία");
+        insertVolunteerAction("Δεντροφύτευση στην Πεντέλη", "Πεντέλη, Αττική", "Το ΟΛΟΙ ΜΑΖΙ ΜΠΟΡΟΥΜΕ μας καλεί, να αφήσουμε και εμείς το δικό μας περιβαλλοντικό αποτύπωμα. Τα δέντρα που θα φυτευτούν θα είναι ανεπτυγμένα, βραδύκαυστα & πλατύφυλλα", "2023-12-17 10:00", "δια ζώσης, 3-4 ώρες, ομαδικό, περιβάλλον, χειρονακτικό");
         insertVolunteerAction("Καθαρισμό του περιβάλλοντος χώρου του Δάσους Υμηττού","Βύρωνας, Αττική", "Κατά τη διάρκεια της δράσης, οι εθελοντές ενημερώθηκαν για τη ρύπανση, τη φροντίδα και αισθητική του δασικού τοπίου, ενώ επίσης συζήτησαν και για τους τρόπους με τους οποίες οι συνήθειες μας επηρεάζουν το φυσικό περιβάλλον", "Παρασκευή 20 Οκτωβρίου 2023");
-        insertVolunteerAction("Εθελοντική Αιμοδοσία Ελληνικού Ερυθρού Σταυρού", "Νέα Σμύρνη, Αττική", "1 ώρα, δια ζώσης, ατομικό, ανθρωπιστικό, αιμοδοσία", "2023-12-16 16:00 - 21:00");
         insertVolunteerAction("Αειθαλεία - Ολιστικό πρόγραμμα για τον εθελοντισμό ατόμων τρίτης ηλικίας", "Πειραιας, Αττικη", "Καθαρισμός ωκεανών και ειδικότερα για τη θαλάσσια ρύπανση και τον τρόπο με τον οποίο οι συνήθειες μας επηρεάζουν τους ωκεανούς μας", "Σάββατο 16 Σεπτεμβρίου");
         insertVolunteerAction("Προγράμματα Εθελοντικής Εργασίας (WorkCamps),", "Ελλάδα και το εξωτερικό", "προστασία του φυσικού περιβάλλοντος, εργασίες σε προστατευόμενες περιοχές, χάραξη, οριοθέτηση και σηματοδότηση μονοπατιών, ξυλοκατασκευές, δενδροφυτέυσεις, καθαρισμός βλάστησης", "2024");
         insertVolunteerAction("Γιατροί χωρίς σύνορα", "Αφορούν αποστολές από τον Εύρο μέχρι την Μέση Ανατολή", "Ιατρικό και μη ιατρικό προσωπικό αναζητά σταθερά η γνωστή ΜΚΟ για τα προγράμματά της", "2024");
