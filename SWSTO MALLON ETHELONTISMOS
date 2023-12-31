@@ -12,13 +12,13 @@ import java.util.Scanner;
 public class ethelo {
 
     public static String chatGPT(String prompt) {
-        String url = "https://api.openai.com/v1/engines/davinci-codex/completions";
-        URI uri = new URI(url);
-        URL obj = uri.toURL();
+        String url = "https://api.openai.com/v1/chat/completions";
         String apiKey = "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";
         String model = "gpt-3.5-turbo";
 
         try {
+            URI uri = new URI(url);
+            URL obj = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
             connection.setRequestMethod("POST");
@@ -36,7 +36,7 @@ public class ethelo {
             // Response from ChatGPT
             BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
-            StringBuilder response = new StringBuilder();
+            StringBuffer response = new StringBuffer();
 
             while ((line = br.readLine()) != null) {
                 response.append(line);
