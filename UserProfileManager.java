@@ -23,18 +23,6 @@ public class UserProfileManager {
     }
 
 
-
-public static void createTable() {
-
-        String createTableQuery = "CREATE TABLE IF NOT EXISTS " +
-                                        "volunteer_actions (" +
-                                        "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                                        "name TEXT," +
-                                        "location TEXT," +
-                                        "description TEXT," +
-                                        "date TEXT," +
-                                        "keywords TEXT)";
-
     
 
     // Δημιουργία πίνακα για τα προφίλ χρηστών
@@ -66,8 +54,6 @@ public static void createTable() {
         }
 
     }
-
-
 
 
  public static void dropTable() {
