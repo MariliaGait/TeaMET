@@ -58,6 +58,9 @@ public class UsersInterests {
             }
         } else {
             int marketing, translate, programm;
+            marketing=0;
+            translate=0;
+            programm=0;
             System.out.println("Θα σας ενδιέφερε να κάνετε χρηματική δωρεά σε κάποια ΜΚΟ; 1.Ναι 2. Όχι");
             int money = scanner.nextInt();
             System.out.println("Γνωρίζετε αγγλικά; 1.Ναι 2. Όχι");
@@ -80,11 +83,13 @@ public class UsersInterests {
             }
             System.out.println("θα σας ενδιέφερε ο τομέας της διαδικτυακής υποστήριξης και βοήθειας μέσω συμβουλών 1.Ναι 2. Όχι");
             int consulting = scanner.nextInt();
+            scanner.close(); 
             return collectUserInterest2(location, money, marketing, translate, programm, consulting);
-        }
-        scanner.close();
-
-    }
+        } 
+         
+            
+    }   
+   
     public static String collectUserInterest1(String l, int m, int e, int a, int h, int s){
         String ca = "Δράσεις δια ζώσης";
         String fenvironment, fhuman, fanimal;
@@ -106,7 +111,7 @@ public class UsersInterests {
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
-                if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
+                 if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
                     fanimal = "Καμπάνιες ευαισθητοποίησης";
                 } else if (a == 2){
                     fanimal = "Κτηνιατριακή περίθαλψη";
@@ -140,7 +145,7 @@ public class UsersInterests {
             } else {
                 if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΧΩΡΙΣ ΙΑΤΡΙΚΑ//
                     fanimal = "Καμπάνιες ευαισθητοποίησης";
-                } else if (a == 2){
+                    } else if (a == 2){
                     fanimal = "Φροντίδα/Παρέα σε άπορα ζώα σε καταφύγια";
                 } else if (a == 3){
                     fanimal = "Μεταφορά ζώων που είναι σε κρίσιμη ανάγκη";
