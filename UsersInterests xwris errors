@@ -54,7 +54,7 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
-                return collectUserInterest1(location, category, medical, environment, animal, human);
+                return removeNegativeInterests(collectUserInterest1(location, category, medical, environment, animal, human));
             }
         } else {
             int marketing, translate, programm;
@@ -84,7 +84,7 @@ public class UsersInterests {
             System.out.println("θα σας ενδιέφερε ο τομέας της διαδικτυακής υποστήριξης και βοήθειας μέσω συμβουλών 1.Ναι 2. Όχι");
             int consulting = scanner.nextInt();
             scanner.close(); 
-            return collectUserInterest2(location, money, marketing, translate, programm, consulting);
+            return removeNegativeInterests(collectUserInterest2(location, money, marketing, translate, programm, consulting));
         } 
          
             
