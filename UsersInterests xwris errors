@@ -90,7 +90,7 @@ public class UsersInterests {
             
     }   
    
-    public static String collectUserInterest1(String l, int m, int e, int a, int h, int s){
+    public static String collectUserInterest1(String l,int ca, int m, int e, int a, int h, int s){
         String ca = "Δράσεις δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
@@ -161,13 +161,13 @@ public class UsersInterests {
                 } else if (h == 2){
                     fhuman = "Εκπαίδευση και υποστήριξη παιδιών σε κοινωνικά φροντιστήρια";
                 } else if (h == 3){
-                    fhuman = "Προσφορά βοήθειας σε καταστροφές (πχ σεισμούς, πυρκαγιές)";
+                    fhuman = "Προσφορά ανθρωπιστικής βοήθειας σε καταστροφές (πχ σεισμούς, πυρκαγιές)";
                 } else {
                     fhuman = "Καμπάνιες ευαισθητοποίησης";
                 }
             }
         }
-        String result1 = ca + l + fenvironment + fanimal + fhuman;
+        String result1 = l + ca + fenvironment + fanimal + fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){
@@ -198,7 +198,23 @@ public class UsersInterests {
         } else {
             fhelp = ("Διαδικτυακή υποστήριξη και βοήθεια με την παροχή συμβουλών");
         }
-        String result2 = l + ca + fmoney + fcampaign + ftranslate + fhttp + fhelp ;
+        String result2 = ca + l + fmoney + fcampaign + ftranslate + fhttp + fhelp ;
         return result2;
     }
 }
+
+
+
+    private static String removeNegativeInterests(String interests) {
+        // Διαχωρίζει τις προτάσεις με βάση το κόμμα
+        String[] interestArray = interests.split(", ");
+
+        // Φιλτράρει τις προτάσεις που δεν αρχίζουν με "Όχι"
+        String[] filteredInterests = Arrays.stream(interestArray)
+                .filter(interest -> !interest.startsWith("Όχι"))
+                .toArray(String[]::new);
+
+        // Συνενώνει τα εναπομείναντα ενδιαφέροντα με κόμμα
+        return String.join(", ", filteredInterests);
+    }
+
