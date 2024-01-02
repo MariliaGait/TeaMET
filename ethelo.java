@@ -10,7 +10,7 @@ public class ethelo {
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //καλω την κλαση userinterest ωστε να λαβω τα ενδιαφεροντα του χρηστη 
         UsersInterests usersint = new UsersInterests();
-        String result = usersint.return_result();
+        String result =  UsersInterests.usersint.return_result();
         System.out.println(chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
     }
 }
