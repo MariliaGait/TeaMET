@@ -233,7 +233,7 @@ public class UsersInterests {
     }
 
     public static String collectUserInterest1(String l,String ca, int m, int e, int a, int h, int s){
-        String ca = "Δράσεις δια ζώσης";
+        ca = "Δράσεις δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
             fenvironment = "οχι περιβαλλον";
