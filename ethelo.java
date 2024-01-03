@@ -9,6 +9,7 @@ public class ethelo {
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //καλω την κλαση userinterest ωστε να λαβω τα ενδιαφεροντα του χρηστη 
         String result =  UsersInterests.return_result();
-        System.out.println(ChatConn.chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
+        ChatConn.chatGPT("Hi, I am going to give you some information about our website user and I want you to provide the best volunteering work for him");
+        System.out.println(ChatConn.chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " .Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
     }
 }
