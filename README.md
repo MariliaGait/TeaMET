@@ -1,2 +1,0 @@
-# TeaMET
-java project
