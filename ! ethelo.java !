@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ethelo {
+public class Ethelo {
     public static void main(String[] args) {
         System.out.println("Καλώς ήρθατε στον εΘΕΛΩντισμό! Είστε έτοιμοι για ένα νέο εθελοντικό ταξίδι;");
         UsersProfile userProfile = UsersProfile.collectUserInformation();
