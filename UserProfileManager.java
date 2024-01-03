@@ -83,8 +83,8 @@ public class UserProfileManager {
         
         String sql = "INSERT INTO user_profile(username, email, password) VALUES(?,?,?)";
 
-        try (Connection connection = DriverManager.getConnection(url);
-             PreparedStatement preparedStatement = connection.prepareStatement(
+        try (Connection connection = DriverManager.getConnection(url));
+             PreparedStatement preparedStatement = connection.prepareStatement
                     "INSERT INTO user_profile(username, age, sex, email, phonenumber) VALUES(?,?,?,?,?)"{
             
             
@@ -118,41 +118,3 @@ public class MainClass {
 }
 
 
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.8.8</version> <!-- Χρησιμοποιήστε την τελευταία έκδοση -->
-</dependency>
-// gia maven//
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import java.io.FileWriter;
-import java.io.IOException;
-
-String filePath ='' ;
-        UserProfile user = new UserProfile();
-// create default object apo klash userProfile wste na kalesw method//
-       user = user.collrctUserInformation();
-
-        // Κλήση μεθόδου για αποθήκευση σε JSON αρχείο
-        saveUserProfileToJson(user, "userProfile.json");
-    }
-
-    private static void saveUserProfileToJson(UserProfile user, String filePath) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        try (FileWriter writer = new FileWriter(filePath)) {
-            
-            gson.toJson(user, writer);
-            System.out.println("Το προφίλ χρήστη αποθηκεύτηκε επιτυχώς στο αρχείο " + filename);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-
-
-//User user = new User(1, "Tom Smith", "American");//
-//gson.toJson(user, new FileWriter(filePath));//
