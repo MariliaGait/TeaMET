@@ -10,12 +10,11 @@ import java.net.URISyntaxException;
 public class ChatConn {
   public static String chatGPT(String prompt) {
     String url = "https://api.openai.com/v1/chat/completions";
-    String apiKey = "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";
+    String apiKey = "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";
     String model = "gpt-3.5-turbo";
 
     try {
-        URI uri = new URI(url);
-        URL obj = uri.toURL();
+        URL obj = new URL(url);
         HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
 
         connection.setRequestMethod("POST");
@@ -41,13 +40,13 @@ public class ChatConn {
         br.close();
 
         // calls the method to extract the message.
-        return extractMessageFromJSONResponse(response.toString());
+        return extractContentFromResponse(response.toString());
 
-    } catch (IOException | URISyntaxException e) {
+    } catch (IOException e) {
         throw new RuntimeException(e);
     }
   }
-    public static String extractMessageFromJSONResponse(String response) {
+    public static String extractContentFromResponse(String response) {
       int start = response.indexOf("content") + 11;
       int end = response.indexOf("\"", start);
       return response.substring(start, end);
