@@ -10,7 +10,7 @@ import java.net.URISyntaxException;
 public class ChatConn {
   public static String chatGPT(String prompt) {
     String url = "https://api.openai.com/v1/chat/completions";
-    String apiKey = "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";
+    String apiKey = "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";
     String model = "gpt-3.5-turbo";
 
     try {
