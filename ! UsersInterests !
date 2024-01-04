@@ -94,7 +94,7 @@ public class UsersInterests {
         String ca = "Δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
-            fenvironment = "οχι περιβαλλον";
+            fenvironment = "Όχι περιβαλλον";
         } else {
             if (e == 1){
                 fenvironment = "Καμπάνιες ευαισθητοποίησης";
@@ -124,7 +124,7 @@ public class UsersInterests {
                 }
             }
             if (h == 0){
-                fhuman = "Όχι ανθρωπους";
+                fhuman = "Όχι ανθρωπιστική";
             } else {
                 if (h == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
                     fhuman = "Αιμοδοσία";
@@ -133,7 +133,7 @@ public class UsersInterests {
                 } else if (h == 3){
                     fhuman = "Προσφορά βοήθειας σε καταστροφές (πχ σεισμούς, πυρκαγιές)";
                 } else if (h == 4){
-                    fhuman = "Ιατρική περίθαλψη(πχ Γιατροί χωρίς σύνορα)";
+                    fhuman = "Ιατρική περίθαλψη";
                 } else {
                     fhuman = "Καμπάνιες ευαισθητοποίησης";
                 }
@@ -154,7 +154,7 @@ public class UsersInterests {
                 }
             }
             if (h == 0){
-                fhuman = "Όχι ανθρωπους";
+                fhuman = "Όχι ανθρωπιστική";
             } else {
                 if (h == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΑΝΘΡΩΠΟΥΣ ΧΩΡΙΣ ΙΑΤΡΙΚΑ//
                     fhuman = "Αιμοδοσία";
@@ -167,7 +167,7 @@ public class UsersInterests {
                 }
             }
         }
-        String result1 = ca +","+ l +","+ fenvironment +","+ fanimal +","+ fhuman;
+        String result1 = l +","+ ca +","+ fenvironment +","+ fanimal +","+ fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){
