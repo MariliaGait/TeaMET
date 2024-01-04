@@ -89,9 +89,8 @@ public class UsersInterests {
          
             
     }   
-   
-    public static String collectUserInterest1(String l, int c, int m, int e, int a, int h){
-        String ca = "Δια ζώσης";
+   public static String collectUserInterest1(String l,String ca, int m, int e, int a, int h, int s){
+        ca = "Δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
             fenvironment = "Όχι περιβαλλον";
@@ -99,9 +98,9 @@ public class UsersInterests {
             if (e == 1){
                 fenvironment = "Καμπάνιες ευαισθητοποίησης";
             } else if (e == 2){
-                fenvironment = "Καθαρισμός δημόσιων χώρων";
+                fenvironment = "Καθαρισμός";
             } else if (e == 3) {
-                fenvironment = "Δενδροφύτευση/Δασοφύτευση";
+                fenvironment = "Δενδροφύτευση";
             } else {
                 fenvironment = "Ανακύκλωση";
             }
@@ -111,14 +110,14 @@ public class UsersInterests {
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
-                 if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
+                if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
                     fanimal = "Καμπάνιες ευαισθητοποίησης";
                 } else if (a == 2){
                     fanimal = "Κτηνιατριακή περίθαλψη";
                 } else if (a == 3){
                     fanimal = "Φροντίδα/Παρέα σε άπορα ζώα σε καταφύγια";
                 } else if (a == 4){
-                    fanimal = "Μεταφορά ζώων σε κρίσιμη ανάγκη";
+                    fanimal = "Μεταφορά ζώων που είναι σε κρίσιμη ανάγκη";
                 } else {
                     fanimal = "Προστασία άγριας ζωής";
                 }
@@ -131,15 +130,43 @@ public class UsersInterests {
                 } else if (h == 2){
                     fhuman = "Εκπαίδευση και υποστήριξη παιδιών σε κοινωνικά φροντιστήρια";
                 } else if (h == 3){
-                    fhuman = "Προσφορά βοήθειας σε καταστροφές";
+                    fhuman = "Προσφορά βοήθειας σε καταστροφές (πχ σεισμούς, πυρκαγιές)";
                 } else if (h == 4){
                     fhuman = "Ιατρική περίθαλψη";
                 } else {
                     fhuman = "Καμπάνιες ευαισθητοποίησης";
                 }
             }
+
+        } else { //ΔΕΝ ΕΧΕΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
+            if (a == 0){
+                fanimal = "Όχι ζώα";
+            } else {
+                if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΧΩΡΙΣ ΙΑΤΡΙΚΑ//
+                    fanimal = "Καμπάνιες ευαισθητοποίησης";
+                } else if (a == 2){
+                    fanimal = "Φροντίδα/Παρέα σε άπορα ζώα σε καταφύγια";
+                } else if (a == 3){
+                    fanimal = "Μεταφορά ζώων που είναι σε κρίσιμη ανάγκη";
+                } else {
+                    fanimal = "Προστασία άγριας ζωής";
+                }
+            }
+            if (h == 0){
+                fhuman = "Όχι άνθρωποι";
+            } else {
+                if (h == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΑΝΘΡΩΠΟΥΣ ΧΩΡΙΣ ΙΑΤΡΙΚΑ//
+                    fhuman = "Αιμοδοσία";
+                } else if (h == 2){
+                    fhuman = "Εκπαίδευση και υποστήριξη παιδιών σε κοινωνικά φροντιστήρια";
+                } else if (h == 3){
+                    fhuman = "Προσφορά ανθρωπιστικής βοήθειας σε καταστροφές (πχ σεισμούς, πυρκαγιές)";
+                } else {
+                    fhuman = "Καμπάνιες ευαισθητοποίησης";
+                }
+            }
         }
-        String result1 = l +","+ ca +","+ fenvironment +","+ fanimal +","+ fhuman;
+        String result1 = l + ca + fenvironment + fanimal + fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){
