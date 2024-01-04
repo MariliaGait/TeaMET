@@ -173,9 +173,9 @@ public class UsersInterests {
         String ca = "Διαδικτυακά";
         String fmoney, fcampaign, ftranslate, fhttp , fhelp;
         if (mo == 2) {
-            fmoney = ("Όχι χρηματική δωρεά");
+            fmoney = ("Όχι δωρεά");
         } else {
-            fmoney = ("Χρηματική δωρεά");
+            fmoney = ("Δωρεά");
         }
         if (ma == 2) {
             fcampaign = ("Όχι καμπάνιες ευαισθητοποίησης");
@@ -188,14 +188,14 @@ public class UsersInterests {
             ftranslate = ("Μετάφραση κειμένων στα αγγλικά");
         }
         if (pr == 2) {
-            fhttp = ("Όχι σχεδιασμό και υλοποίηση ιστοσελίδων για οργανισμούς");
+            fhttp = ("Όχι ιστοσελίδες");
         } else {
-            fhttp = ("Σχεδιασμός και υλοποίηση ιστοσελίδων για οργαισμούς");
+            fhttp = ("Ιστοσελίδες");
         }
         if (co == 2) {
-            fhelp = ("Όχι διαδικτυακή υποστήριξη και βοήθεια με την παροχή συμβουλών");
+            fhelp = ("Όχι συμβουλές");
         } else {
-            fhelp = ("Διαδικτυακή υποστήριξη και βοήθεια με την παροχή συμβουλών");
+            fhelp = ("Συμβουλές");
         }
         String result2 = l +","+ ca +","+ fmoney +","+ fcampaign +","+ ftranslate +","+ fhttp +","+ fhelp ;
         return result2;
