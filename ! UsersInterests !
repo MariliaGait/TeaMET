@@ -91,7 +91,7 @@ public class UsersInterests {
     }   
    
     public static String collectUserInterest1(String l, int c, int m, int e, int a, int h){
-        String ca = "Δράσεις δια ζώσης";
+        String ca = "Δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
             fenvironment = "οχι περιβαλλον";
@@ -171,7 +171,7 @@ public class UsersInterests {
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){
-        String ca = "Δράσεις διαδικτύου";
+        String ca = "Διαδικτυακά";
         String fmoney, fcampaign, ftranslate, fhttp , fhelp;
         if (mo == 2) {
             fmoney = ("Όχι χρηματική δωρεά");
