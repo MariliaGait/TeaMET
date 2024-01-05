@@ -5,7 +5,7 @@ public class UsersInterests {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Σε ποια περιοχή θα επιθυμούσατε να δραστηριοποιηθείτε;");
         String location = scanner.next();
-        System.out.println("Ποια κατηγορία προτιμάτε: 1.δράσεις δια ζώσης   2.διαδικτυακό εθελοντισμό ");
+        System.out.println("Ποια κατηγορία προτιμάτε: 1.Δράσεις δια ζώσης   2.Διαδικτυακό εθελοντισμό ");
         int category = scanner.nextInt();
         if (category == 1){
             int environment, animal, human;
