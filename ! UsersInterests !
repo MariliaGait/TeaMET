@@ -36,7 +36,7 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
-                return collectUserInterest1(location, category, medical, environment, animal, human);
+                return collectUserInterest1(location, medical, environment, animal, human);
             } else {
                 System.out.println("Θα θέλατε να λάβετε μέρος σε εθελοντικές δράσεις που αφορούν τα ζώα; 1.Ναι 2.Όχι");
                 int qanimal = scanner.nextInt();
@@ -54,7 +54,7 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
-                return collectUserInterest1(location, category, medical, environment, animal, human);
+                return collectUserInterest1(location, medical, environment, animal, human);
             }
         } else {
             int marketing, translate, programm;
@@ -89,8 +89,8 @@ public class UsersInterests {
          
             
     }   
-   public static String collectUserInterest1(String l,String ca, int m, int e, int a, int h, int s){
-        ca = "Δια ζώσης";
+   public static String collectUserInterest1(String l, int m, int e, int a, int h, int s){
+        String ca = "Δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
             fenvironment = "Όχι περιβαλλον";
@@ -166,7 +166,7 @@ public class UsersInterests {
                 }
             }
         }
-        String result1 = l + ca + fenvironment + fanimal + fhuman;
+        String result1 = ca + fenvironment + fanimal + fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){
@@ -197,7 +197,7 @@ public class UsersInterests {
         } else {
             fhelp = ("Συμβουλές");
         }
-        String result2 = l +","+ ca +","+ fmoney +","+ fcampaign +","+ ftranslate +","+ fhttp +","+ fhelp ;
+        String result2 = ca +","+ fmoney +","+ fcampaign +","+ ftranslate +","+ fhttp +","+ fhelp ;
         return result2;
     }
 }
