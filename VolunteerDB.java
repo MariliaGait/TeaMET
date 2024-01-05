@@ -181,6 +181,15 @@ public class VolunteerDB {
         insertVolunteerAction("ΥΙΟΘΕΤΗΣΕ ΜΙΑ ΠΑΡΑΛΙΑ","https://www.wwf.gr/poioi_eimaste/apologismos_2022/yiothetise_mia_paralia/","","","διαδικτυακός εθελοντισμός, περιβάλλον");
         insertVolunteerAction("ΓΙΝΕ ΑΝΑΔΟΧΟΣ ΓΟΝΙΟΣ","https://www.crete.gov.gr/gine-anadochos-gonios/","","","ανθρωπιστική βοήθεια");
         insertVolunteerAction("Volunteers at UNICEF","https://www.unicef.org/careers/volunteers-unicef","","","διαδικτυακός εθελοντισμός");
+        insertVolunteerAction("Μαθήματα Μουσικής ή Χορού", "Αθήνα", "Μαθήματα Μουσικής ή Χορού σε παιδιά και νεαρούς πρόσφυγες:http://www.ethelon.org/job/15-5/", "", "ανθρωπιστική υποστήριξη");
+        insertVolunteerAction("Μαθήματα Εικαστικών Τεχνών", "Αθήνα", "Μαθήματα Ζωγραφικής, Κεραμικής, Αγγειοπλαστικής, Φωτογραφίας σε παιδιά και νεαρούς πρόσφυγες:http://www.ethelon.org/job/10-40/", "", "ανθρωπιστική υποστήριξη");
+        insertVolunteerAction("Μαθήματα Θεάτρου", "Αθήνα", "Μαθήματα Θεάτρου/Θεατρικό Παιχνίδι σε παιδιά και νεαρούς πρόσφυγες:http://www.ethelon.org/job/10-39/", "", "ανθρωπιστική υποστήριξη");
+        insertVolunteerAction("Φωτογραφική Εκδήλωση Ευαισθητοποίησης", "Αθήνα, Μεταξουργείο", "http://www.ethelon.org/job/10-37/", "", "ανθρωπιστική βοήθεια, εκπαίδευση");
+        insertVolunteerAction("Social Media Specialist", "Πυλαία, Θεσσαλονίκη", "http://www.ethelon.org/job/social-media-specialist-3/", "", "ανθρωπιστικο, δια ζωσης, διαδικτυακός");
+        insertVolunteerAction("POSIDONIA Non-Profit Company", "http://www.ethelon.org/ngo/posidonia-non-profit-company/", "","", "ανθρωπιστική βοήθεια");
+        insertVolunteerAction("Εθελοντική Αστερο-Υποστήριξη στο πρόγραμμα «Αστέρι της Ευχής»", "http://www.ethelon.org/job/10-36/", "", "", "ανθρωπιστικο");
+        insertVolunteerAction("Volunteer Greek Teacher", "http://www.ethelon.org/job/volunteer-greek-teacher/", "", "", "εκπαίδευση, ανθρωπιστική βπήθεια");
+                
 
                 
 
