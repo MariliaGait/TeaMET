@@ -1,3 +1,5 @@
+package com.ethelontismos;
+
 public class VolunteerAction {
 
     private int id;

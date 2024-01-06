@@ -1,3 +1,5 @@
+package com.ethelontismos;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -11,15 +13,22 @@ public class UserProfileManager {
 
     public static void createDatabase() {
 
-        try(Connection connection = DriverManager.getConnection(DB_URL)) {
+        try {
 
-            System.out.println("Connected to the database.");
+            Class.forName("org.sqlite.JDBC");
 
-        } catch (SQLException e) {
+            try(Connection connection = DriverManager.getConnection(DB_URL)) {
+
+            } catch (SQLException e) {
 
             System.err.println("Error creating the database: " + e.getMessage());
             e.printStackTrace();
 
+            }
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
         }
 
     }
@@ -35,18 +44,25 @@ public class UserProfileManager {
             + " email TEXT NOT NULL,\n"
             + " phone TEXT NOT NULL)";
 
-        try (Connection connection = DriverManager.getConnection(DB_URL);
+        try {
+            
+            Class.forName("org.sqlite.JDBC");
+
+            try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
             
-            statement.executeUpdate(createTableQuery);
+                statement.executeUpdate(createTableQuery);
 
-            System.out.println("Table created successfully.");
+            } catch (SQLException e) {
 
-        } catch (SQLException e) {
+                System.err.println("Error creating the table: " + e.getMessage());
+                e.printStackTrace();
 
-            System.err.println("Error creating the table: " + e.getMessage());
+            }
+
+        } catch (ClassNotFoundException e) {
+
             e.printStackTrace();
-
         }
 
     }
@@ -55,51 +71,73 @@ public class UserProfileManager {
 
         String dropTableQuery = "DROP TABLE IF EXISTS user_profiles";
 
-        try (Connection connection = DriverManager.getConnection(DB_URL);
+        
+        try {
+            
+            Class.forName("org.sqlite.JDBC");
+
+            try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
 
             statement.executeUpdate(dropTableQuery);
-            System.out.println("Table dropped successfully.");
 
-        } catch (SQLException e) {
+            } catch (SQLException e) {
 
             System.err.println("Error dropping the table: " + e.getMessage());
             e.printStackTrace();
 
+            }
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
         }
+
     }
 
     // Εισαγωγή νέου προφίλ χρήστη
     public static void insertUserProfile(String username,int age, int sex, String email, String phone) {
         
-        try (Connection connection = DriverManager.getConnection(DB_URL);
+        try {
+            
+            Class.forName("org.sqlite.JDBC");
+            
+            try (Connection connection = DriverManager.getConnection(DB_URL);
              PreparedStatement preparedStatement = connection.prepareStatement(
                     "INSERT INTO user_profiles(username, age, sex, email, " +
                     "phone) VALUES(?, ?, ?, ?, ?)")) {
             
             
-            preparedStatement.setString(1, username);
-            preparedStatement.setInt(2, age);
-            preparedStatement.setInt(3, sex);
-            preparedStatement.setString(4, email);
-            preparedStatement.setString(5, phone);
+                preparedStatement.setString(1, username);
+                preparedStatement.setInt(2, age);
+                preparedStatement.setInt(3, sex);
+                preparedStatement.setString(4, email);
+                preparedStatement.setString(5, phone);
             
-            preparedStatement.executeUpdate();
+                preparedStatement.executeUpdate();
             
-            System.out.println("Το προφίλ χρήστη προστέθηκε επιτυχώς.");
+                System.out.println("Το προφίλ χρήστη προστέθηκε επιτυχώς.");
             
-        } catch (SQLException e) {
+            } catch (SQLException e) {
 
             System.out.println(e.getMessage());
+
+            }
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
+
         }
+
     }
 
-    public static void main(String[] args) {
+    public static void newUser(UsersProfile user) {
 
         createDatabase();
         dropTable();
         createTable();
-        insertUserProfile("john_doe", 25, 0, "john.doe@example.com", "1234567890");
+        insertUserProfile(user.getUsername(), user.getAge(), user.getSex(), user.getEmail(), user.getPhone());
 
     }
 }

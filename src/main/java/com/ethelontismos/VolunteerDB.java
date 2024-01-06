@@ -1,3 +1,5 @@
+package com.ethelontismos;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,17 +15,24 @@ public class VolunteerDB {
 
     public static void createDatabase() {
 
-        try(Connection connection = DriverManager.getConnection(DB_URL)) {
+        try {
 
-            System.out.println("Connected to the database.");
+            Class.forName("org.sqlite.JDBC");
+    
+            try (Connection connection = DriverManager.getConnection(DB_URL)) {
 
-        } catch (SQLException e) {
+            } catch (SQLException e) {
 
-            System.err.println("Error creating the database: " + e.getMessage());
+                System.err.println("Error creating the database: " + e.getMessage());
+                e.printStackTrace();
+
+            }
+    
+        } catch (ClassNotFoundException e) {
+
             e.printStackTrace();
 
         }
-
     }
     
     public static void createTable() {
@@ -37,18 +46,25 @@ public class VolunteerDB {
             "date TEXT NOT NULL,\n" +
             "keywords TEXT NOT NULL)";
 
-        try (Connection connection = DriverManager.getConnection(DB_URL);
+        try {
+
+            Class.forName("org.sqlite.JDBC");
+
+            try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement()) {
             
-            statement.executeUpdate(createTableQuery);
+                statement.executeUpdate(createTableQuery);
 
-            System.out.println("Table created successfully.");
+            } catch (SQLException e) {
 
-        } catch (SQLException e) {
+                System.err.println("Error creating the table: " + e.getMessage());
+                e.printStackTrace();
 
-            System.err.println("Error creating the table: " + e.getMessage());
+            }
+
+        } catch (ClassNotFoundException e) {
+
             e.printStackTrace();
-
         }
 
     }
@@ -57,42 +73,59 @@ public class VolunteerDB {
 
         String dropTableQuery = "DROP TABLE IF EXISTS volunteer_actions";
 
-        try (Connection connection = DriverManager.getConnection(DB_URL);
-             Statement statement = connection.createStatement()) {
+        try {
 
-            statement.executeUpdate(dropTableQuery);
-            System.out.println("Table dropped successfully.");
+            Class.forName("org.sqlite.JDBC");
 
-        } catch (SQLException e) {
+            try (Connection connection = DriverManager.getConnection(DB_URL);
+            Statement statement = connection.createStatement()) {
+
+                statement.executeUpdate(dropTableQuery);
+
+            } catch (SQLException e) {
 
             System.err.println("Error dropping the table: " + e.getMessage());
             e.printStackTrace();
 
+            }
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
         }
+
+
     }
 
     public static void insertVolunteerAction(String name, String location,
         String description, String date, String keywords) {
 
-        try (Connection connection = DriverManager.getConnection(DB_URL);
+        try {
+
+            Class.forName("org.sqlite.JDBC");
+
+            try (Connection connection = DriverManager.getConnection(DB_URL);
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "INSERT INTO volunteer_actions (name, location, " +
                      "description, date, keywords) VALUES (?, ?, ?, ?, ?)")) {
 
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, location);
-            preparedStatement.setString(3, description);
-            preparedStatement.setString(4, date);
-            preparedStatement.setString(5, keywords);
+                preparedStatement.setString(1, name);
+                preparedStatement.setString(2, location);
+                preparedStatement.setString(3, description);
+                preparedStatement.setString(4, date);
+                preparedStatement.setString(5, keywords);
 
-            preparedStatement.executeUpdate();
+                preparedStatement.executeUpdate();
 
-            System.out.println("Volunteer action inserted successfully.");
-
-        } catch (SQLException e) {
+            } catch (SQLException e) {
 
             e.printStackTrace();
 
+            }
+
+        } catch (ClassNotFoundException e) {
+
+            e.printStackTrace();
         }
     
     }
@@ -101,35 +134,43 @@ public class VolunteerDB {
 
         List<VolunteerAction> activities = new ArrayList<>();
 
-        try (Connection connection = DriverManager.getConnection(DB_URL);
+        try {
+
+            Class.forName("org.sqlite.JDBC");
+
+            try (Connection connection = DriverManager.getConnection(DB_URL);
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery("SELECT * FROM volunteer_actions")) {
 
-            while (resultSet.next()) {
+                while (resultSet.next()) {
 
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String location = resultSet.getString("location");
-                String description = resultSet.getString("description");
-                String date = resultSet.getString("date");
-                String keywords = resultSet.getString("keywords");
+                    int id = resultSet.getInt("id");
+                    String name = resultSet.getString("name");
+                    String location = resultSet.getString("location");
+                    String description = resultSet.getString("description");
+                    String date = resultSet.getString("date");
+                    String keywords = resultSet.getString("keywords");
 
-                VolunteerAction activity = new VolunteerAction(id, name, location, description, date, keywords);
+                    VolunteerAction activity = new VolunteerAction(id, name, location, description, date, keywords);
 
-                activities.add(activity);
+                    activities.add(activity);
+
+                }
+
+            } catch (SQLException e) {
+
+                System.err.println("Error in SQL Database " + e.getMessage());
+                e.printStackTrace();
+                System.exit(1);
 
             }
 
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException e) {
 
-            System.err.println("Error in SQL Database " + e.getMessage());
             e.printStackTrace();
-            System.exit(1);
-
         }
 
         return activities;
-        
     }
 
     public static void fillDB() {
@@ -140,9 +181,9 @@ public class VolunteerDB {
         createTable();
 
         //insert volunteer actions to table
-        insertVolunteerAction("Συγκέντρωση Χριστουγεννιάτικων Δώρων για παιδιά", "Αττική", "Το ΟΛΟΙ ΜΑΖΙ ΜΠΟΡΟΥΜΕ καλεί τους κατοίκους της Αττικής να προσφέρουν για τα παιδιά του Δήμου τους δώρα, παιχνίδια, παιδικά βιβλία και ό,τι άλλο μπορεί να ονειρευτεί κάθε παιδί!", "2023-12-16 09:30 - 13:30", "Δια ζώσης,Βοήθεια");
-        insertVolunteerAction("Εθελοντική Αιμοδοσία Ελληνικού Ερυθρού Σταυρού", "Αγιος Στέφανος, Αττική", "Εθελοντική αιμοδοσία σε οργάνωση από τον Ελληνικό Ερυθρό Σταυρό", "2023-12-16 10:00 - 16:00", "Δια ζώσης,αιμοδοσία");
-        insertVolunteerAction("Δεντροφύτευση στην Πεντέλη", "Πεντέλη, Αττική", "Το ΟΛΟΙ ΜΑΖΙ ΜΠΟΡΟΥΜΕ μας καλεί, να αφήσουμε και εμείς το δικό μας περιβαλλοντικό αποτύπωμα. Τα δέντρα που θα φυτευτούν θα είναι ανεπτυγμένα, βραδύκαυστα & πλατύφυλλα", "2023-12-17 10:00", "Δια ζώσης,Δενδροφύτευση");
+        insertVolunteerAction("Συγκέντρωση Χριστουγεννιάτικων Δώρων για παιδιά", "Αττική", "Το ΟΛΟΙ ΜΑΖΙ ΜΠΟΡΟΥΜΕ καλεί τους κατοίκους της Αττικής να προσφέρουν για τα παιδιά του Δήμου τους δώρα, παιχνίδια, παιδικά βιβλία και ό,τι άλλο μπορεί να ονειρευτεί κάθε παιδί!", "2023-12-16 09:30 - 13:30", "Δια ζώσης, Βοήθεια");
+        insertVolunteerAction("Εθελοντική Αιμοδοσία Ελληνικού Ερυθρού Σταυρού", "Αγιος Στέφανος, Αττική", "Εθελοντική αιμοδοσία σε οργάνωση από τον Ελληνικό Ερυθρό Σταυρό", "2023-12-16 10:00 - 16:00", "Δια ζώσης, αιμοδοσία");
+        insertVolunteerAction("Δεντροφύτευση στην Πεντέλη", "Πεντέλη, Αττική", "Το ΟΛΟΙ ΜΑΖΙ ΜΠΟΡΟΥΜΕ μας καλεί, να αφήσουμε και εμείς το δικό μας περιβαλλοντικό αποτύπωμα. Τα δέντρα που θα φυτευτούν θα είναι ανεπτυγμένα, βραδύκαυστα & πλατύφυλλα", "2023-12-17 10:00", "Δια ζώσης, Δενδροφύτευση");
         insertVolunteerAction("Καθαρισμό του περιβάλλοντος χώρου του Δάσους Υμηττού","Βύρωνας, Αττική", "Κατά τη διάρκεια της δράσης, οι εθελοντές ενημερώνονται για τη ρύπανση, τη φροντίδα και αισθητική του δασικού τοπίου και συζητούν για τους τρόπους με τους οποίους οι συνήθειες μας επηρεάζουν το φυσικό περιβάλλον", "Κάθε Παρασκευή","Δια ζώσης, Καθαρισμός");
         insertVolunteerAction("Αειθαλεία", "Πειραιας, Αττικη", "Καθαρισμός ωκεανών και για την αντιμετώπιση της  θαλάσσιας ρύπανσης με συνείδηση του τρόπου με τον οποίο οι συνήθειες μας επηρεάζουν τους ωκεανούς μας- Ολιστικό πρόγραμμα που συμμετέχουν και άτομα τρίτης ηλικίας", "Σάββατο 16 Σεπτεμβρίου","Δια ζώσης, Καθαρισμός δημοσίων χώρων");            
         insertVolunteerAction("Προγράμματα Εθελοντικής Εργασίας (WorkCamps),", "Ελλάδα και το εξωτερικό", "Περιλαμβάνουν την προστασία του φυσικού περιβάλλοντος, εργασίες σε προστατευόμενες περιοχές, χάραξη, οριοθέτηση και σηματοδότηση μονοπατιών, ξυλοκατασκευές, δενδροφυτέυσεις, καθαρισμός βλάστησης", "2024", "Δια ζώσης, Δενδροφύτευση");
@@ -153,7 +194,7 @@ public class VolunteerDB {
         insertVolunteerAction("#GIVINGTUESDAY", "Αττική", "Μπορείτε να προσφέρετε και εσείς αγαθά ή καθαρό και ευπρεπή ρουχισμό στο Εθελοντικό Συντονιστικό Κέντρο, ώστε να συμπεριληφθούν στα πακέτα στήριξης", " 28 Νοεμβρίου 2023","Δια ζώσης, Βοήθεια");
         insertVolunteerAction("Μαζί με το  κανάλι OPEN «Aνοίγουμε την Aγκαλιά μας στην Tρίτη ηλικία»", " Εθελοντικό Συντονιστικό Κέντρο του Humanity Greece", "Προσφορά βοήθειας σε άπορους παππούδες και γιαγιάδες κατα την περίοδο των γιορτών", "","Δια ζώσης, Βοήθεια");            
         insertVolunteerAction("«Βοήθεια στο Σπίτι»", " Εθελοντικό Συντονιστικό Κέντρο του Humanity Greece", "Προσφορά βοήθειας σε άπορους ανθρώπους, ετοιμασία φαγητού και πακέτων με είδη πρώτης ανάγκης", "Καθημερινά και κάθε Δευτέρα στη Κοινωνική κουζίνα","Δια ζώσης, Βοήθεια");
-        insertVolunteerAction("WWF Προστασία για τα δάση μας", "https://www.wwf.gr/ti_mporeis_na_kaneis/ekstrateies/prostasia_gia_ta_dasi/", "Διαδικτυακή υπογραφή για την προστασία των δασών", "","Δια ζώσης,Καμπάνιες ευαισθητοποίησης");
+        insertVolunteerAction("WWF Προστασία για τα δάση μας", "https://www.wwf.gr/ti_mporeis_na_kaneis/ekstrateies/prostasia_gia_ta_dasi/", "Διαδικτυακή υπογραφή για την προστασία των δασών", "","Δια ζώσης, Καμπάνιες ευαισθητοποίησης");
         insertVolunteerAction("Blue Panda", "Σούνιο,Γυάρος και Σύρος", "Το ιστιοπλοϊκό σκάφος του WWF, διασχίζουμε και φέτος τη Μεσόγειο και θα μοιραστούμε με εσάς ιστορίες και εικόνες από τον πλούτο των θαλασσών μας. Μαζί θα ανακαλύψουμε τη «θάλασσα που θέλουμε»!", "Από τις 3 έως και τις 13 Σεπτεμβρίου κάθε χρόνο","Δια ζώσης, Καμπάνιες ευαισθητοποίησης");
         insertVolunteerAction("WWF:ΥΙΟΘΕΤΗΣΕ ΕΝΑ ΑΠΕΙΛΟΥΜΕΝΟ ΕΙΔΟΣ", "https://donate.wwf.gr/yiothetise", "Με μια συμβολική υιοθεσία μπορείς να κάνεις τη διαφορά μεταξύ εξαφάνισης και επιβίωσης για ένα πολύτιμο κομμάτι της άγριας ζωής.", "","Διαδικτυακά, Δωρεά");
         insertVolunteerAction("ActionAID:Γίνε Ανάδοχος", "https://actionaid.gr/gine-anadohos", "Γίνεσαι ανάδοχος παιδιού", "", "Διαδικτυακά, Δωρεά");

@@ -1,0 +1,145 @@
+package com.ethelontismos;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URL;
+import java.net.URISyntaxException;
+
+public class ChatConn2 {
+
+    public static String chatGPT(String prompt) {
+
+        int maxRetries = 3;
+        int retryCount = 0;
+
+        StringBuffer response = new StringBuffer();
+
+        while (retryCount < maxRetries) {
+
+            try {
+
+                String url = "https://api.openai.com/v1/chat/completions";
+                String apiKey = "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";
+                String model = "gpt-3.5-turbo";
+
+                try {
+
+                    URI uri = new URI(url);
+                    URL obj = uri.toURL();
+                    HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+
+                    connection.setRequestMethod("POST");
+                    connection.setRequestProperty("Authorization", "Bearer " + apiKey);
+                    connection.setRequestProperty("Content-Type", "application/json");
+
+                    int responseCode = connection.getResponseCode();
+                    if (responseCode == 429) {
+                        // If 429 (Too Many Requests), back off and retry
+                        System.out.println("Rate limit exceeded. Retrying after backoff...");
+                        throw new IOException("HTTP response code: " + responseCode);
+                    }   
+
+                    // The request body
+                    String body = "{\"model\": \"" + model + "\", \"messages\": [{\"role\": \"user\", \"content\": \"" + prompt
+                    + "\"}]}";
+
+                    connection.setDoOutput(true);
+
+                    OutputStreamWriter writer = new OutputStreamWriter(connection.getOutputStream());
+                    writer.write(body);
+                    writer.flush();
+                    writer.close();
+
+                    // Response from ChatGPT
+                    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                    String line;
+
+                    while ((line = br.readLine()) != null) {
+                    response.append(line);
+                }
+
+                br.close();
+
+                } catch (IOException e) {
+
+                    throw e;
+
+                } catch (URISyntaxException e) {
+
+                    e.printStackTrace();
+
+                }
+
+            } catch (RuntimeException e) {
+                // Handle RuntimeException separately if needed
+                e.printStackTrace();
+                // Optionally, you can break out of the loop or take other actions
+                break;
+
+            } catch (IOException e) {
+
+                if (isRetryableException(e)) {
+                    // Check if the exception is retryable
+                    System.out.println("IOException occurred. Retrying after backoff...");
+                    retryCount++;
+                    backoff(retryCount);
+                } else {
+                    // Handle other IOExceptions
+                   e.printStackTrace();
+                   break;
+                }
+            
+            }
+
+        }
+
+        return extractContentFromResponse(response.toString());
+    }
+
+    public static String extractContentFromResponse(String response) {
+
+        int start = response.indexOf("content");
+    
+        // Check if "content" is present in the response
+        if (start != -1) {
+            // Adjust the start index to skip "content" and the colon
+            start += 10;
+    
+            // Check if the end index is valid
+            int end = response.indexOf("\"", start);
+            if (end != -1 && end > start) {
+                return response.substring(start, end);
+            } else {
+                // Handle the case where the end index is invalid
+                return "Unable to extract content from response: Invalid end index";
+            }
+        } else {
+
+            System.out.println("Actual response: " + response);
+            // Handle the case where "content" is not found
+            return "Content not found in response";
+        }
+        
+    }
+
+    private static boolean isRetryableException(IOException e) {
+        // Check if the exception is retryable (e.g., 429 error)
+    return e.getCause() instanceof IOException
+            && e.getCause().getMessage() != null
+            && e.getCause().getMessage().contains("HTTP response code: 429");
+    }
+
+    private static void backoff(int retryCount) {
+        try {
+            // Exponential backoff formula: sleep for 2^retryCount seconds
+            Thread.sleep((long) Math.pow(2, retryCount) * 1000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+}

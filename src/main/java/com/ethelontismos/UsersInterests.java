@@ -1,3 +1,5 @@
+package com.ethelontismos;
+
 import java.util.Scanner;
 
 public class UsersInterests {
@@ -89,7 +91,7 @@ public class UsersInterests {
          
             
     }   
-   public static String collectUserInterest1(String l, int m, int e, int a, int h, int s){
+   public static String collectUserInterest1(String l, int m, int e, int a, int h){
         String ca = "Δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
@@ -166,7 +168,7 @@ public class UsersInterests {
                 }
             }
         }
-        String result1 = ca + fenvironment + fanimal + fhuman;
+        String result1 = ca + ", " + fenvironment + ", " + fanimal + ", " + fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){
@@ -197,7 +199,7 @@ public class UsersInterests {
         } else {
             fhelp = ("Συμβουλές");
         }
-        String result2 = ca +","+ fmoney +","+ fcampaign +","+ ftranslate +","+ fhttp +","+ fhelp ;
+        String result2 = ca + ", " + fmoney + ", " + fcampaign + ", " + ftranslate + ", " + fhttp + ", " + fhelp ;
         return result2;
     }
 }
