@@ -135,7 +135,6 @@ public class UserProfileManager {
     public static void newUser(UsersProfile user) {
 
         createDatabase();
-        dropTable();
         createTable();
         insertUserProfile(user.getUsername(), user.getAge(), user.getSex(), user.getEmail(), user.getPhone());
 

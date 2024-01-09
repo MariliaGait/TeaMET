@@ -59,10 +59,6 @@ public class UsersProfile {
         System.out.print("Τηλέφωνο: ");
         String phone = scanner.nextLine();
 
-        /* UserProfileManager userProfileManager = new UserProfileManager();
-        
-        userProfileManager.insertUserProfile(username, age, sex, email, phonenumber); */
-
         return new UsersProfile(username, age, sex, email, phone);
     }
 }
