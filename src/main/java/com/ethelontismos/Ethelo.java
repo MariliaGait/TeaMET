@@ -9,7 +9,7 @@ public class Ethelo {
         System.out.println("Καλώς ήρθατε στον εΘΕΛΩντισμό! Είστε έτοιμοι για ένα νέο εθελοντικό ταξίδι;");
         UsersProfile userProfile = UsersProfile.collectUserInformation();
         //αποθηκευω το προφιλ του χρηστη στη βαση
-        UserProfileManager.newUser(userProfile);
+        UsersProfileManager.newUser(userProfile);
         //καλω την κλαση που περιλαμβανει το προφιλ του χρηστη και παιρνω το ονομα του 
         String userName = userProfile.getUsername();
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");

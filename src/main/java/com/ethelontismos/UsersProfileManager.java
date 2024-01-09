@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class UserProfileManager {
+public class UsersProfileManager {
 
     // Σύνδεση στη βάση δεδομένων SQLite
     public static final String DB_URL = "jdbc:sqlite:user_profiles.db";
