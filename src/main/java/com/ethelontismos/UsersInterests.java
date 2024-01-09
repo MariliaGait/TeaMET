@@ -38,6 +38,7 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
+                scanner.close();
                 return collectUserInterest1(location, medical, environment, animal, human);
             } else {
                 System.out.println("Θα θέλατε να λάβετε μέρος σε εθελοντικές δράσεις που αφορούν τα ζώα; 1.Ναι 2.Όχι");
@@ -56,6 +57,7 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
+                scanner.close();
                 return collectUserInterest1(location, medical, environment, animal, human);
             }
         } else {
