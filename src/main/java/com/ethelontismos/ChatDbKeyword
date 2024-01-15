@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class ChatDbKeyword {
 
-        public static String PromptBuilder(String targetkeyword,List<String> allActions) {
+        public static String PromptBuilder(String targetkeyword,List<String> allActions,String name) {
              StringBuilder sb = new StringBuilder();
              String x = "";
             
@@ -17,6 +17,7 @@ public class ChatDbKeyword {
                 for (String var : allActions) {
                     sb.append(var).append("\n");
                 }
+             sb.append("\n Γράψε ένα κείμενο που θα προτείνει στον χρήστη με όνομα: " +name +"τις εθελοντικές δράσεις που θα βρείς απο την αντιστοίχιση που θα κάνεις πιό πάνω")
              return sb.toString();
 
             } catch (Exception e) {
