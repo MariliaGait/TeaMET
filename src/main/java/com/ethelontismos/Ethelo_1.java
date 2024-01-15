@@ -1,3 +1,4 @@
+package com.ethelontismos;
 import java.util.List;
 
 public class Ethelo_1 { // main class και σύνδεση με ΑΙ
