@@ -46,12 +46,20 @@ public class UsersProfile {
         System.out.print("Ονοματεπώνυμο: ");
         String username = scanner.nextLine();
         System.out.print("Ηλικία: ");
-        int age = scanner.nextInt();
+        int age;
+        do {
+            age = scanner.nextInt();
+            if (age <= 0) {
+               System.out.println("Παρακαλώ εισάγετε έναν θετικό αριθμό για την ηλικία.");                                                     try {
+               }                                                           
+        } while (age <= 0);
         System.out.println("Φύλο: 1.Γυναίκα     2.Άνδρας     3.Άλλο ");
         int sex;
         do {
             sex = scanner.nextInt();
-            scanner.nextLine();
+            if (sex != 1 && sex != 2 && sex !=3) {
+              System.out.println("Παρακαλώ εισάγετε έγκυρο αριθμό (1, 2 ή 3).");
+            }                                                         
         }while(sex != 1 && sex != 2 && sex !=3);
         System.out.println("Στοιχεία επικοινωνίας: ");
         System.out.print("E-mail: ");
