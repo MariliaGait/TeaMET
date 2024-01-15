@@ -19,7 +19,9 @@ public class Ethelo_2 {     //main class σε περιπτωση που δεν �
         List<VolunteerAction> allActions = VolunteerDB.getAllVolunteerActions();
     
         String targetKeyword = RemoveNegativeInterests.removeNegativeInterests(result);
-        
+        //1η γραμμή σύνδεση μέσω Chat
+        String promptDBandKeyword = ChatDbKeyword.promptBuilder(targetKeyword,allActions);
+        //2η γραμμή όχι σύνδεση με Chat αλλά μάσω της κλάσης VolunteerActionHandler
         List<VolunteerAction> filteredActions = VolunteerActionHandler.
         filterByKeywords(allActions, targetKeyword);
         
