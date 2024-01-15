@@ -1,23 +1,21 @@
 import java.lang.StringBuilder;
 import java.util.List;
 import java.util.Objects;
-//Επιστρέφει prompt(βάση και keyword) για να τροφοδοτηθεί το ChatGPT 3.5 
-
+//Δημιουργία prompt για να τροφοδοτηθεί το ChatGPT 3.5 με τη βάση και το keyword
 public class ChatDbKeyword {
 
-        public static String PromptBuilder(String targetkeyword,List<String> allActions,String name) {
+        public static String promptBuilder(String targetkeyword,List<VolunteerAction> allActions,String name) {
              StringBuilder sb = new StringBuilder();
              String x = "";
-            
             try {
 
                 sb.append("i will give u a list of data that i want u to match with this keyword:");
-                sb.append(targetKeyword);
-                sb.append("/n" + "here's the data: ");
-                for (String var : allActions) {
+                sb.append(targetkeyword);
+                sb.append("\n" + "here's the data: ");
+                for (VolunteerAction var : allActions) {
                     sb.append(var).append("\n");
                 }
-             sb.append("\n Γράψε ένα κείμενο που θα προτείνει στον χρήστη με όνομα: " +name +"τις εθελοντικές δράσεις που θα βρείς απο την αντιστοίχιση που θα κάνεις πιό πάνω")
+                sb.append("\n Γράψε ένα κείμενο που θα προτείνει στον χρήστη με όνομα: " +name +"τις εθελοντικές δράσεις που θα βρείς απο την αντιστοίχιση που θα κάνεις πιό πάνω");
              return sb.toString();
 
             } catch (Exception e) {
@@ -25,5 +23,10 @@ public class ChatDbKeyword {
                 return x;
             }
 
+
         }
+
+
 }
+
+
