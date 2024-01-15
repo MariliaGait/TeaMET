@@ -14,9 +14,9 @@ public class ChatConn {
   public static String chatGPT(String prompt) {
 
     String url = "https://api.openai.com/v1/completions";
-    String apiKey = "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";
+    String apiKey = YOUR_API_KEY;
     String model = "gpt-3.5-turbo";
-
+ 
     StringBuffer response = new StringBuffer();
 
     try {
