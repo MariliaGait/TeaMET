@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class ChatDbKeyword {
 
-        public static String ChatCaller(String targetkeyword,List<String> allActions) {
+        public static String PromptBuilder(String targetkeyword,List<String> allActions) {
              StringBuilder sb = new StringBuilder();
              String x = "";
             try {
