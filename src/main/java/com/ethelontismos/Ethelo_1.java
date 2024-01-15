@@ -13,11 +13,19 @@ public class Ethelo_1 { // main class και σύνδεση με ΑΙ
 
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         String result = UsersInterests.return_result(); 
-
-        String actions = /* εδω συνδεση με db */ ;
+        
+        VolunteerDB.fillDB();
+        List<VolunteerAction> allActions = VolunteerDB.getAllVolunteerActions();
+    
+        String targetKeyword = RemoveNegativeInterests.removeNegativeInterests(result);
+        //1η γραμμή σύνδεση μέσω Chat
+        String promptDBandKeyword = ChatDbKeyword.promptBuilder(targetKeyword,allActions,userName);
+        String anwer =ChatConn.cahtGPT(promptDBandKeyword);
+        System.out.println(answer);
+        /*String actions = /* εδω συνδεση με db */ ;
        
         String prompt =  "Ο χρήστης με το όνομα " + userName + " ενδιαφέρεται να λάβει μέρος σε μια εθελοντική δράση. Ενδιαφέρεται για: " + result + ". Πρότεινέ του την πιο κατάλληλη εθελοντική δράση από τις ακόλουθες: " + actions ;
         String answer = ChatConn.chatGPT(prompt);
-        System.out.println(answer);
+        System.out.println(answer); */
     }
 }
