@@ -12,8 +12,8 @@ public class ChatDbKeyword {
             try {
 
                 sb.append("i will give u a list of data that i want u to match with this keyword:");
-                sb.append("keyword. ");
-                sb.append("here's the data: ");
+                sb.append(targetKeyword);
+                sb.append("/n" + "here's the data: ");
                 for (String var : allActions) {
                     sb.append(var).append("\n");
                 }
