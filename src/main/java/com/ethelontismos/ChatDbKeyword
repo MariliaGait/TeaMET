@@ -8,6 +8,7 @@ public class ChatDbKeyword {
         public static String PromptBuilder(String targetkeyword,List<String> allActions) {
              StringBuilder sb = new StringBuilder();
              String x = "";
+            
             try {
 
                 sb.append("i will give u a list of data that i want u to match with this keyword:");
@@ -22,9 +23,6 @@ public class ChatDbKeyword {
                 System.out.println(e.getMessage());
                 return x;
             }
-            //System.out.println("done");
 
         }
-
-
 }
