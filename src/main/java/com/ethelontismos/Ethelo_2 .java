@@ -10,7 +10,7 @@ public class Ethelo_2 {     //main class σε περιπτωση που δεν �
         //αποθηκευω το προφιλ του χρηστη στη βαση
         UsersProfileManager.newUser(userProfile);
         //καλω την κλαση που περιλαμβανει το προφιλ του χρηστη και παιρνω το ονομα του 
-        String userName = userProfile.getUsername();
+        String userName = userProfile.getUsername(); //xreiazetai????//
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //καλω την κλαση userinterest ωστε να λαβω τα ενδιαφεροντα του χρηστη 
         String result =  UsersInterests.return_result();
