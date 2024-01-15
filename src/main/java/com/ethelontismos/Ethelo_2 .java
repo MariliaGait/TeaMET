@@ -1,8 +1,7 @@
 package com.ethelontismos;
 
 import java.util.List;
-
-public class Ethelo {
+public class Ethelo_2 {     //main class σε περιπτωση που δεν λειτουργησει η συνδεση με το ΑΙ
 
     public static void main(String[] args) {
 
@@ -15,10 +14,7 @@ public class Ethelo {
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //καλω την κλαση userinterest ωστε να λαβω τα ενδιαφεροντα του χρηστη 
         String result =  UsersInterests.return_result();
-                
-        //ChatConn.chatGPT("Hi, I am going to give you some information about a user and I want you to give me the most suitable volunteering work for him");
-        //System.out.println(ChatConn.chatGPT("Ο χρήστης με το όνομα" + userName + "ενδιαφέρεται να λάβει μέρος σε μια εθελοτνική δράση. Ενδιαφέρεται για :" + result + " .Πρότεινέ του την κατάλληλη εθελοντική εργασία"));
-    
+
         VolunteerDB.fillDB();
         List<VolunteerAction> allActions = VolunteerDB.getAllVolunteerActions();
     
