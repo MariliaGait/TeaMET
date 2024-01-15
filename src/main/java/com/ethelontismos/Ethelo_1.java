@@ -20,7 +20,7 @@ public class Ethelo_1 { // main class και σύνδεση με ΑΙ
         String targetKeyword = RemoveNegativeInterests.removeNegativeInterests(result);
         //1η γραμμή σύνδεση μέσω Chat
         String promptDBandKeyword = ChatDbKeyword.promptBuilder(targetKeyword,allActions,userName);
-        String anwer =ChatConn.cahtGPT(promptDBandKeyword);
+        String answer =ChatConn.chatGPT(promptDBandKeyword);
         System.out.println(answer);
         /*
         String actions = /* εδω συνδεση με db */ ;
