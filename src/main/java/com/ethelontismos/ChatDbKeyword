@@ -1,0 +1,30 @@
+import java.lang.StringBuilder;
+import java.util.List;
+import java.util.Objects;
+//Επιστρέφει prompt(βάση και keyword) για να τροφοδοτηθεί το ChatGPT 3.5 
+
+public class ChatDbKeyword {
+
+        public static String ChatCaller(String targetkeyword,List<String> allActions) {
+             StringBuilder sb = new StringBuilder();
+             String x = "";
+            try {
+
+                sb.append("i will give u a list of data that i want u to match with this keyword:");
+                sb.append("keyword. ");
+                sb.append("here's the data: ");
+                for (String var : allActions) {
+                    sb.append(var).append("\n");
+                }
+             return sb.toString();
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                return x;
+            }
+            //System.out.println("done");
+
+        }
+
+
+}
