@@ -17,6 +17,7 @@ public class ChatConn {
   public static String getAPIKey() {
     
     Scanner scanner = new Scanner(System.in);
+    System.out.println("Παρακαλώ δώσε το API Key σου.");
     String key = scanner.nextLine();
     scanner.close();
 
