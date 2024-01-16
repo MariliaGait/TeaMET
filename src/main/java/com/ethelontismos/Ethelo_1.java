@@ -23,11 +23,12 @@ public class Ethelo_1 { // main class και σύνδεση με ΑΙ
         String promptDBandKeyword = ChatDbKeyword.promptBuilder(targetKeyword,allActions,userName);
         String answer1 = ChatConn.chatGPT(promptDBandKeyword);
         System.out.println(answer1);
+        
         /*
-        String actions = /* εδω συνδεση με db */ ;
+        String actions = /* εδω συνδεση με db
         String prompt =  "Ο χρήστης με το όνομα " + userName + " ενδιαφέρεται να λάβει μέρος σε μια εθελοντική δράση. Ενδιαφέρεται για: " + result + ". Πρότεινέ του την πιο κατάλληλη εθελοντική δράση από τις ακόλουθες: " + allActions ;
         String answer2 = ChatConn.chatGPT(prompt);
         System.out.println(answer2); 
-        
+        */
     }
 }
