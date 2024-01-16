@@ -95,7 +95,7 @@ public class UsersInterests {
     }   
    public static String collectUserInterest1(String l, int m, int e, int a, int h){
         String ca = "Δια ζώσης";
-        String fenvironment, fhuman, fanimal;
+        String fenvironment, fhuman, fanimal, me;
         if (e == 0){
             fenvironment = "Όχι περιβαλλον";
         } else {
@@ -110,7 +110,7 @@ public class UsersInterests {
             }
         }
         if (m == 1){  // ΕΧΕΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
-            String me = "Έχω ιατρικές γνώσεις";
+            me = "Έχω ιατρικές γνώσεις";
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
@@ -143,6 +143,7 @@ public class UsersInterests {
             }
 
         } else { //ΔΕΝ ΕΧΕΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
+            me = "Δεν έχω ιατρικές γνώσεις";
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
@@ -170,7 +171,7 @@ public class UsersInterests {
                 }
             }
         }
-        String result1 = ca + ", " + fenvironment + ", " + fanimal + ", " + fhuman;
+        String result1 =me + ", " + ca + ", " + fenvironment + ", " + fanimal + ", " + fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){

@@ -1,6 +1,8 @@
+package com.ethelontismos;
+
 import java.lang.StringBuilder;
 import java.util.List;
-import java.util.Objects;
+
 //Δημιουργία prompt για να τροφοδοτηθεί το ChatGPT 3.5 με τη βάση και το keyword
 public class ChatDbKeyword {
 

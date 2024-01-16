@@ -1,6 +1,7 @@
 package com.ethelontismos;
 
 import java.util.List;
+
 public class Ethelo_2 {     //main class σε περιπτωση που δεν λειτουργησει η συνδεση με το ΑΙ
 
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class Ethelo_2 {     //main class σε περιπτωση που δεν �
         //αποθηκευω το προφιλ του χρηστη στη βαση
         UsersProfileManager.newUser(userProfile);
         //καλω την κλαση που περιλαμβανει το προφιλ του χρηστη και παιρνω το ονομα του 
-        String userName = userProfile.getUsername(); //xreiazetai????//
+        String userName = userProfile.getUsername();
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //καλω την κλαση userinterest ωστε να λαβω τα ενδιαφεροντα του χρηστη 
         String result =  UsersInterests.return_result();
@@ -24,7 +25,7 @@ public class Ethelo_2 {     //main class σε περιπτωση που δεν �
         filterByKeywords(allActions, targetKeyword);
         
         // Εκτύπωση των αποτελεσμάτων
-        System.out.println("Οι δράσεισ που σου προτείνουμε είναι οι εξής:");
+        System.out.println("Αγαπητέ/ή " + userName + ", οι δράσεις που σου προτείνουμε είναι οι εξής:");
 
         for (VolunteerAction action : filteredActions) {
 

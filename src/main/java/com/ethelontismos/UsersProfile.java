@@ -50,8 +50,8 @@ public class UsersProfile {
         do {
             age = scanner.nextInt();
             if (age <= 0) {
-               System.out.println("Παρακαλώ εισάγετε έναν θετικό αριθμό για την ηλικία.");                                                     try {
-               }                                                           
+               System.out.println("Παρακαλώ εισάγετε έναν θετικό αριθμό για την ηλικία.");
+               }
         } while (age <= 0);
         System.out.println("Φύλο: 1.Γυναίκα     2.Άνδρας     3.Άλλο ");
         int sex;
@@ -66,7 +66,9 @@ public class UsersProfile {
         String email = scanner.nextLine();
         System.out.print("Τηλέφωνο: ");
         String phone = scanner.nextLine();
+        scanner.close();
 
         return new UsersProfile(username, age, sex, email, phone);
     }
 }
+
