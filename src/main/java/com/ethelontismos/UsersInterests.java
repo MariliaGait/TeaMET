@@ -6,15 +6,18 @@ public class UsersInterests {
     public static String return_result(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Σε ποια περιοχή θα επιθυμούσατε να δραστηριοποιηθείτε;");
-        String location = scanner.next();
-        System.out.println("Ποια κατηγορία προτιμάτε: 1.Δράσεις δια ζώσης   2.Διαδικτυακό εθελοντισμό ");
+        String location = scanner.nextLine();
+        System.out.println("Ποια κατηγKορία προτιμάτε: 1.Δράσεις δια ζώσης   2.Διαδικτυακό εθελοντισμό ");
         int category = scanner.nextInt();
+        scanner.nextLine();
         if (category == 1){
             int environment, animal, human;
             System.out.println("Έχετε ιατρικές γνώσεις; 1.Ναι 2.Όχι");
             int medical = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Θα θέλατε να λάβετε μέρος σε εθελοντικές δράσεις που αφορούν το περιβάλλον; 1.Ναι 2.Όχι");
             int qenvironment = scanner.nextInt();
+            scanner.nextLine();
             if (qenvironment == 1) {
                 System.out.println("Με ποια από τις παρακάτω εθελοντικές δράσεις που αφορούν το περιβάλλον θα σας ενδιέφερε να ασχοληθείτε; 1.Καμπάνιες ευαισθητοποίησης 2.Καθαρισμός δημόσιων χώρων 3.Δενδροφύτευση/Δασοφύτευση 4.Ανακύκλωση");
                 environment = scanner.nextInt();
@@ -38,7 +41,7 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
-                scanner.close();
+                
                 return collectUserInterest1(location, medical, environment, animal, human);
             } else {
                 System.out.println("Θα θέλατε να λάβετε μέρος σε εθελοντικές δράσεις που αφορούν τα ζώα; 1.Ναι 2.Όχι");
@@ -57,8 +60,9 @@ public class UsersInterests {
                 } else {
                     human = 0;
                 }
-                scanner.close();
+                
                 return collectUserInterest1(location, medical, environment, animal, human);
+                
             }
         } else {
             int marketing, translate, programm;
@@ -67,6 +71,7 @@ public class UsersInterests {
             programm=0;
             System.out.println("Θα σας ενδιέφερε να κάνετε χρηματική δωρεά σε κάποια ΜΚΟ; 1.Ναι 2. Όχι");
             int money = scanner.nextInt();
+            scanner.nextLine();
             System.out.println("Γνωρίζετε αγγλικά; 1.Ναι 2. Όχι");
             int qtranslate = scanner.nextInt();
             if (qtranslate == 1) {
@@ -87,15 +92,14 @@ public class UsersInterests {
             }
             System.out.println("θα σας ενδιέφερε ο τομέας της διαδικτυακής υποστήριξης και βοήθειας μέσω συμβουλών 1.Ναι 2. Όχι");
             int consulting = scanner.nextInt();
-            scanner.close(); 
+
             return collectUserInterest2(location, money, marketing, translate, programm, consulting);
         } 
-         
-            
+           
     }   
    public static String collectUserInterest1(String l, int m, int e, int a, int h){
         String ca = "Δια ζώσης";
-        String fenvironment, fhuman, fanimal, me;
+        String fenvironment, fhuman, fanimal;
         if (e == 0){
             fenvironment = "Όχι περιβαλλον";
         } else {
@@ -110,7 +114,6 @@ public class UsersInterests {
             }
         }
         if (m == 1){  // ΕΧΕΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
-            me = "Έχω ιατρικές γνώσεις";
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
@@ -143,7 +146,6 @@ public class UsersInterests {
             }
 
         } else { //ΔΕΝ ΕΧΕΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
-            me = "Δεν έχω ιατρικές γνώσεις";
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
@@ -171,7 +173,7 @@ public class UsersInterests {
                 }
             }
         }
-        String result1 =me + ", " + ca + ", " + fenvironment + ", " + fanimal + ", " + fhuman;
+        String result1 = ca + ", " + fenvironment + ", " + fanimal + ", " + fhuman;
         return result1;
     }
     public static String collectUserInterest2(String l, int mo, int ma, int tr, int pr, int co){

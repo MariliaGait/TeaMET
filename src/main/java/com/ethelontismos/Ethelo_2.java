@@ -15,12 +15,12 @@ public class Ethelo_2 {     //main class σε περιπτωση που δεν �
         System.out.println("Ας ανακαλύψουμε τι σας ταιριάζει!");
         //καλω την κλαση userinterest ωστε να λαβω τα ενδιαφεροντα του χρηστη 
         String result =  UsersInterests.return_result();
-
+        System.out.println(result);
         VolunteerDB.fillDB();
         List<VolunteerAction> allActions = VolunteerDB.getAllVolunteerActions();
     
         String targetKeyword = RemoveNegativeInterests.removeNegativeInterests(result);
-     
+        System.out.println(targetKeyword);
         List<VolunteerAction> filteredActions = VolunteerActionHandler.
         filterByKeywords(allActions, targetKeyword);
         

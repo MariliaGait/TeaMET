@@ -57,6 +57,7 @@ public class UsersProfile {
         int sex;
         do {
             sex = scanner.nextInt();
+            scanner.nextLine();
             if (sex != 1 && sex != 2 && sex !=3) {
               System.out.println("Παρακαλώ εισάγετε έγκυρο αριθμό (1, 2 ή 3).");
             }                                                         
@@ -66,7 +67,6 @@ public class UsersProfile {
         String email = scanner.nextLine();
         System.out.print("Τηλέφωνο: ");
         String phone = scanner.nextLine();
-        scanner.close();
 
         return new UsersProfile(username, age, sex, email, phone);
     }
