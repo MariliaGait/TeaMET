@@ -8,15 +8,28 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URL;
 import java.net.URISyntaxException;
+import java.util.Scanner;
 
 public class ChatConn {
+
+  static String apiKey;
+  
+  public static String getAPIKey() {
+    
+    Scanner scanner = new Scanner(System.in);
+    String key = scanner.nextLine();
+    scanner.close();
+
+    return key;
+  }
+  
 
   public static String chatGPT(String prompt) {
 
     String url = "https://api.openai.com/v1/completions";
-    String apiKey = YOUR_API_KEY;
     String model = "gpt-3.5-turbo";
- 
+    apiKey = getAPIKey();
+
     StringBuffer response = new StringBuffer();
 
     try {
