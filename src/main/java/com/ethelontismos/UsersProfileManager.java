@@ -102,22 +102,29 @@ public class UsersProfileManager {
             
             Class.forName("org.sqlite.JDBC");
             
-            try (Connection connection = DriverManager.getConnection(DB_URL);
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "INSERT INTO user_profiles(username, age, sex, email, " +
-                    "phone) VALUES(?, ?, ?, ?, ?)")) {
-            
-            
-                preparedStatement.setString(1, username);
-                preparedStatement.setInt(2, age);
-                preparedStatement.setInt(3, sex);
-                preparedStatement.setString(4, email);
-                preparedStatement.setString(5, phone);
-            
-                preparedStatement.executeUpdate();
-            
-                System.out.println("Το προφίλ χρήστη προστέθηκε επιτυχώς.");
-            
+            try (Connection connection = DriverManager.getConnection(DB_URL)) {
+                // Check if the user with the same email or phone already exists
+                if (!userExists(connection, email, phone)) {
+                    try (PreparedStatement preparedStatement = connection.prepareStatement(
+                            "INSERT INTO user_profiles(username, age, sex, email, phone) VALUES(?, ?, ?, ?, ?)")) {
+    
+                        preparedStatement.setString(1, username);
+                        preparedStatement.setInt(2, age);
+                        preparedStatement.setInt(3, sex);
+                        preparedStatement.setString(4, email);
+                        preparedStatement.setString(5, phone);
+    
+                        preparedStatement.executeUpdate();
+    
+                        System.out.println("Το προφίλ χρήστη δημιουργήθηκε επιτυχώς.");
+    
+                    } catch (SQLException e) {
+                        System.out.println(e.getMessage());
+                    }
+                } else {
+                    System.out.println("Υπάρχει ήδη χρήστης με το ίδιο email ή τηλέφωνο.");
+                }
+
             } catch (SQLException e) {
 
             System.out.println(e.getMessage());
@@ -130,6 +137,20 @@ public class UsersProfileManager {
 
         }
 
+    }
+
+    private static boolean userExists(Connection connection, String email, String phone) throws SQLException {
+        String query = "SELECT COUNT(*) FROM user_profiles WHERE email = ? OR phone = ?";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, email);
+            preparedStatement.setString(2, phone);
+            try (var resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt(1) > 0;
+                }
+            }
+        }
+        return false;
     }
 
     public static void newUser(UsersProfile user) {
