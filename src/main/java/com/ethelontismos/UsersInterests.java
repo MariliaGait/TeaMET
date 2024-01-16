@@ -101,8 +101,9 @@ public class UsersInterests {
         String ca = "Δια ζώσης";
         String fenvironment, fhuman, fanimal;
         if (e == 0){
-            fenvironment = "Όχι περιβαλλον";
+            fenvironment = "Όχι περιβάλλον";
         } else {
+            fenvironment = "Περιβάλλον";
             if (e == 1){
                 fenvironment = "Καμπάνιες ευαισθητοποίησης";
             } else if (e == 2){
@@ -132,6 +133,7 @@ public class UsersInterests {
             if (h == 0){
                 fhuman = "Όχι ανθρωπιστική";
             } else {
+                fhuman = "Ανθρωπιστική";
                 if (h == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΑΝΘΡΩΠΟΥΣ ΚΑΙ ΙΑΤΡΙΚΕΣ ΓΝΩΣΕΙΣ//
                     fhuman = "Αιμοδοσία";
                 } else if (h == 2){
@@ -149,6 +151,7 @@ public class UsersInterests {
             if (a == 0){
                 fanimal = "Όχι ζώα";
             } else {
+                fanimal = "Ζώα";
                 if (a == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΖΩΑ ΧΩΡΙΣ ΙΑΤΡΙΚΑ//
                     fanimal = "Καμπάνιες ευαισθητοποίησης";
                 } else if (a == 2){
@@ -160,8 +163,9 @@ public class UsersInterests {
                 }
             }
             if (h == 0){
-                fhuman = "Όχι άνθρωποι";
+                fhuman = "Όχι ανθρωπιστική";
             } else {
+                fhuman = "Ανθρωπιστική";
                 if (h == 1){ //ΑΣΧΟΛΙΑ ΜΕ ΑΝΘΡΩΠΟΥΣ ΧΩΡΙΣ ΙΑΤΡΙΚΑ//
                     fhuman = "Αιμοδοσία";
                 } else if (h == 2){
@@ -187,7 +191,7 @@ public class UsersInterests {
         if (ma == 2) {
             fcampaign = ("Όχι καμπάνιες ευαισθητοποίησης");
         } else {
-            fcampaign = ("καμπάνιες ευαισθητοποίησης");
+            fcampaign = ("Καμπάνιες ευαισθητοποίησης");
         }
         if (tr == 2) {
             ftranslate = ("Όχι μετάφραση κειμένων στα αγγλικά");
