@@ -9,8 +9,7 @@ import java.sql.Statement;
 public class UsersProfileManager {
 
     // Σύνδεση στη βάση δεδομένων SQLite
-    public static final String DB_URL = "jdbc:sqlite:user_profiles.db";
-
+    public static final String DB_URL = "jdbc:sqlite:src/main/resources/db/user_profiles.db";
     public static void createDatabase() {
 
         try {

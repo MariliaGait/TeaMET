@@ -9,6 +9,17 @@
       <resource>
         <filtering>true</filtering>
         <directory>src/main/resources</directory>
+        <excludes>
+          <exclude>db/*.db</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <targetPath>db</targetPath>
+        <directory>src/main/resources/db</directory>
+        <includes>
+          <include>user_profiles.db</include>
+          <include>volunteer_actions.db</include>
+        </includes>
       </resource>
     </resources>
     <plugins>

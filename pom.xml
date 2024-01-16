@@ -42,9 +42,20 @@
   <build>
     <resources>
         <resource>
-            <directory>src/main/resources</directory>
-            <filtering>true</filtering>
-        </resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+            <exclude>db/*.db</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>src/main/resources/db</directory>
+        <targetPath>db</targetPath>
+        <includes>
+            <include>user_profiles.db</include>
+            <include>volunteer_actions.db</include>
+        </includes>
+      </resource>
     </resources>
     <plugins>
       <plugin>

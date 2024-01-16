@@ -11,7 +11,7 @@ import java.util.List;
 
 public class VolunteerDB {
 
-    private static final String DB_URL = "jdbc:sqlite:volunteer_actions.db";
+    private static final String DB_URL = "jdbc:sqlite:src/main/resources/db/volunteer_actions.db";
 
     public static void createDatabase() {
 
