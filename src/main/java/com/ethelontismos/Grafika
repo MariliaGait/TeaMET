@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+//lalalalalalaaalal edw htan h MYRTO//
 
 public class Grafika{
     public static void main(String[] args) {
