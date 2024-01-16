@@ -22,7 +22,6 @@ public class ChatConn {
 
     return key;
   }
-  
 
   public static String chatGPT(String prompt) {
 
