@@ -2,7 +2,6 @@
 mvn clean install
 
 # Οδηγίες Εκτέλεσης του Προγράμματος
-cd target/
 java -jar target/TeaMET-1.0.1.jar
 
 
