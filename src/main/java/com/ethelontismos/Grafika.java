@@ -1,4 +1,4 @@
-package ethelontismos;
+package com.ethelontismos;
 
 import javax.swing.*;
 import java.awt.Color;
@@ -960,5 +960,4 @@ if (qprogram==1) {
  frame.add(panel);
  frame.setVisible(true);
  }
-}
 }

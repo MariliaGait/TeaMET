@@ -1,7 +1,6 @@
 package com.ethelontismos;
 import java.lang.StringBuilder;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Σύντομη περιγραφή κλάσης:
