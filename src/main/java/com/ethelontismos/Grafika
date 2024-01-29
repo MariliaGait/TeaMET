@@ -1,6 +1,6 @@
 package ethelontismos;
-import javax.swing.*;
 
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -577,8 +577,6 @@ if (qprogram==1) {
  
  
  
- // Rest of your code...
-
 
 
  JButton continueButton3 = new JButton("Continue");
