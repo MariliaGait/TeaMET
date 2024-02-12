@@ -25,7 +25,7 @@ public class Grafika{
  continueButton.setContentAreaFilled(false); // Make the button transparent
  continueButton.setBorderPainted(true); // Remove button border
  panel.add(continueButton);
- JButton signinButton = new JButton("Sign in");
+ JButton signinButton = new JButton("Sign up");
  signinButton.setContentAreaFilled(false); // Make the button transparent
  signinButton.setBorderPainted(true); // Remove button border
  panel.add(signinButton);
@@ -130,8 +130,6 @@ public class Grafika{
  findyourpathButton2.addActionListener(new ActionListener() {
  @Override
  public void actionPerformed(ActionEvent e) {
- // Εδώ μπορείς να θέσεις τις ερωτήσεις με το JOptionPane ή άλλον τρόπο όπως πριν
-
  
 
  String name1 = JOptionPane.showInputDialog(frame, "Ονοματεπώνυμο: ");
@@ -255,6 +253,8 @@ if (qenvironment==1) {
  options4[0]);
 
  String an= "όχι ζώα";
+
+  //μεταβλητες που συλλέγουν τα διάφορα ενδιαφέροντα, τις οποίες θα χρησιμοποιούσαμε για να τις στείλουμε στο AI (προκειμένου να βρεθεί η κλίση του εκάστοτε χρήστη)
 
  
  if (preferredCategory3==0) {
@@ -608,7 +608,7 @@ if (qprogram==1) {
  findyourpathButton.addActionListener(new ActionListener() {
  @Override
  public void actionPerformed(ActionEvent e) {
- // Εδώ μπορείς να θέσεις τις ερωτήσεις με το JOptionPane ή άλλον τρόπο όπως πριν
+
 
  
 
@@ -926,6 +926,7 @@ if (qprogram==1) {
  }
 
  String result2 = diadiktiaka+ ", " + prog + ", " + mark + ", " + adv;
+  // τα ενδιαφέροντα του χρήστη θα συγκεντρώνονταν στα result1 και result2 (θα συλλέγονταν και τα αντίστοιχα δεδομένα από το αρχικό login button), τα οποία θα στέλονταν στο AI για τη συνέχεια της διαδικασίας, και τη πρόταση των κατάλληλων εθελοντικών δράσεων στον χρήστη
 
  
 
