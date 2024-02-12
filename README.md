@@ -39,3 +39,7 @@ java -jar target/TeaMET-1.0.1.jar
 -----> στον φάκελο java υπάρχει ο φάκελος com με υποφάκελο ethelontismos για την δήλωση του πακέτου που δημιουργεί το project μας  -- com.ethelontismos -- 
 
 ------> στον φάκελο com/ethelontismos/ περιλαμβάνονται όλα τα .java αρχεία που χρησιμοποιούνται για τη κωδικοποίηση του project μας
+
+# Διάγραμμα UML σχετικά με τον σχεδιασμό του κώδικα
+Το διάγραμμα αυτό έχει υλοποιηθεί με βάση την Ethelo2 ως main κλάση
+![UML-diagram](https://github.com/MariliaGait/TeaMET/assets/147326236/94be3f0a-0480-45e5-abe9-ab59044399ef)
